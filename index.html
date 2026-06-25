@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K PLUS CEO講堂｜凱基人壽 × 商周CEO學院</title>
-  <meta name="description" content="K PLUS CEO講堂報名頁｜凱基人壽 × 商周CEO學院，給處經理的高階經營講堂。" />
+  <meta name="description" content="K PLUS CEO講堂報名頁｜凱基人壽 × 商周CEO學院。" />
   <style>
     :root {
       --navy-950: #041832;
@@ -768,6 +768,79 @@
       .speaker-role { font-size: 15px; }
     }
 
+
+    /* v13：講師照片取消框線，改為直接與姓名職稱並排 */
+    .speaker-panel {
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%);
+      border: 1px solid rgba(201,155,85,.20);
+      box-shadow: 0 16px 42px rgba(16, 41, 76, .10);
+    }
+    .speaker-card-top {
+      grid-template-columns: 148px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .speaker-avatar {
+      height: auto;
+      min-height: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      overflow: visible;
+      align-self: end;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .speaker-avatar img {
+      width: auto;
+      height: 210px;
+      max-width: 152px;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 14px 18px rgba(16,41,76,.14));
+    }
+    .speaker-heading {
+      align-self: center;
+      padding-top: 4px;
+    }
+    .speaker-panel .speaker-role {
+      color: #52657d;
+    }
+    .speaker-points {
+      margin-top: 14px;
+      background: rgba(255,255,255,.78);
+    }
+    @media (max-width: 560px) {
+      .speaker-panel { padding: 18px 16px; }
+      .speaker-card-top {
+        grid-template-columns: 118px 1fr;
+        gap: 13px;
+        align-items: center;
+      }
+      .speaker-avatar {
+        height: auto;
+        min-height: 0;
+        padding: 0;
+      }
+      .speaker-avatar img {
+        height: 168px;
+        max-width: 120px;
+      }
+      .speaker-heading { padding-top: 0; }
+      .speaker-name { margin-top: 7px; }
+      .speaker-topic { margin-top: 10px; }
+      .speaker-points { margin-top: 14px; }
+    }
+    @media (max-width: 390px) {
+      .speaker-card-top { grid-template-columns: 104px 1fr; gap: 11px; }
+      .speaker-avatar img { height: 154px; max-width: 106px; }
+      .speaker-role { font-size: 14.5px; }
+      .speaker-name { font-size: 27px; }
+      .speaker-topic { font-size: 14.5px; }
+    }
+
   </style>
 </head>
 <body>
@@ -823,7 +896,7 @@
             <div class="speaker-card-top">
               <div class="speaker-avatar"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧講師照片"></div>
               <div class="speaker-heading">
-                <div class="speaker-role">前台灣奧美集團董事總經理</div>
+                <div class="speaker-role">前台灣奧美集團 董事總經理</div>
                 <div class="speaker-name">謝馨慧</div>
                 <div class="speaker-topic">溝通影響力</div>
               </div>
@@ -839,7 +912,7 @@
             <div class="speaker-card-top">
               <div class="speaker-avatar"><img src="assets/chen-flora.webp" alt="陳慧蓉講師照片"></div>
               <div class="speaker-heading">
-                <div class="speaker-role">前台灣微軟首席營運長</div>
+                <div class="speaker-role">前台灣微軟 首席營運長</div>
                 <div class="speaker-name">陳慧蓉</div>
                 <div class="speaker-topic">教練引導力</div>
               </div>
@@ -873,7 +946,7 @@
           <article class="outline-card reveal delay-1">
             <div class="outline-head">
               <div class="subject">溝通影響力</div>
-              <div class="teacher">謝馨慧｜前台灣奧美集團董事總經理</div>
+              <div class="teacher">謝馨慧｜前台灣奧美集團 董事總經理</div>
             </div>
             <ul class="outline-list">
               <li>洞察人心與看懂局勢：掌握新世代心理與團隊溝通關鍵</li>
@@ -885,7 +958,7 @@
           <article class="outline-card reveal delay-2">
             <div class="outline-head">
               <div class="subject">教練引導力</div>
-              <div class="teacher">陳慧蓉｜前台灣微軟首席營運長</div>
+              <div class="teacher">陳慧蓉｜前台灣微軟 首席營運長</div>
             </div>
             <ul class="outline-list">
               <li>從管理績效到成就他人：主管如何將目標轉化為團隊前進動能</li>
@@ -912,18 +985,18 @@
             </div>
             <div class="schedule-event">
               <div class="date-block">11/10（二）<span>下午</span></div>
-              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟首席營運長｜台北金控大樓18樓</p></div>
+              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟 首席營運長｜台北金控大樓18樓</p></div>
             </div>
           </article>
           <article class="schedule-card reveal delay-1">
             <h3 class="schedule-title">高雄場<small>參與學員：中嘉、台南、高屏處經理</small></h3>
             <div class="schedule-event">
               <div class="date-block">8/11（二）<span>下午</span></div>
-              <div class="event-info"><strong>謝馨慧｜溝通影響力</strong><p>前台灣奧美集團董事總經理｜高雄明誠大樓12樓</p></div>
+              <div class="event-info"><strong>謝馨慧｜溝通影響力</strong><p>前台灣奧美集團 董事總經理｜高雄明誠大樓12樓</p></div>
             </div>
             <div class="schedule-event">
               <div class="date-block">11/11（三）<span>下午</span></div>
-              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟首席營運長｜高雄明誠大樓12樓</p></div>
+              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟 首席營運長｜高雄明誠大樓12樓</p></div>
             </div>
           </article>
         </div>
@@ -1031,7 +1104,7 @@
         location: "台北金控大樓18樓",
         events: [
           { date: "8/5（三）下午", speaker: "邱光隆", role: "三商家購（美廉社）董事總經理", course: "逆境領導力" },
-          { date: "11/10（二）下午", speaker: "陳慧蓉", role: "前台灣微軟首席營運長", course: "教練引導力" }
+          { date: "11/10（二）下午", speaker: "陳慧蓉", role: "前台灣微軟 首席營運長", course: "教練引導力" }
         ]
       },
       kaohsiung: {
@@ -1039,8 +1112,8 @@
         attendees: "中嘉、台南、高屏處經理",
         location: "高雄明誠大樓12樓",
         events: [
-          { date: "8/11（二）下午", speaker: "謝馨慧", role: "前台灣奧美集團董事總經理", course: "溝通影響力" },
-          { date: "11/11（三）下午", speaker: "陳慧蓉", role: "前台灣微軟首席營運長", course: "教練引導力" }
+          { date: "8/11（二）下午", speaker: "謝馨慧", role: "前台灣奧美集團 董事總經理", course: "溝通影響力" },
+          { date: "11/11（三）下午", speaker: "陳慧蓉", role: "前台灣微軟 首席營運長", course: "教練引導力" }
         ]
       }
     };
