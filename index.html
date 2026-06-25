@@ -1122,23 +1122,23 @@
     const regionEl = document.getElementById("region");
     const sessionBox = document.getElementById("sessionBox");
     const message = document.getElementById("message");
-    const modal = document.getElementById("confirmModal");
-    const summaryList = document.getElementById("summaryList");
-    const editBtn = document.getElementById("editBtn");
-    const confirmBtn = document.getElementById("confirmBtn");
     const otherNeed = document.getElementById("otherNeed");
-    let pendingPayload = null;
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     function getGroup(region) {
       if (groups.taipei.includes(region)) return "taipei";
       if (groups.kaohsiung.includes(region)) return "kaohsiung";
       return "";
     }
+
     function getSessionDetail(session) {
       if (!session) return "";
-      const eventText = session.events.map(e => `${e.date} ${e.speaker}｜${e.role}｜${e.course}`).join("；");
+      const eventText = session.events
+        .map(e => `${e.date} ${e.speaker}｜${e.role}｜${e.course}`)
+        .join("；");
       return `${session.label}｜${eventText}｜地點：${session.location}｜與會學員：${session.attendees}`;
     }
+
     function renderSession() {
       const group = getGroup(regionEl.value);
       if (!group) {
@@ -1146,6 +1146,7 @@
         sessionBox.innerHTML = "請先選擇地區，系統將自動帶入台北場或高雄場。";
         return;
       }
+
       const s = sessions[group];
       sessionBox.className = "auto-session";
       sessionBox.innerHTML = `
@@ -1160,82 +1161,74 @@
           <div class="auto-event"><div class="auto-topic"><strong>與會學員：</strong>${s.attendees}</div></div>
         </div>`;
     }
+
     function showMessage(type, text) {
       message.className = `message show ${type}`;
       message.textContent = text;
     }
+
     function clearMessage() {
       message.className = "message";
       message.textContent = "";
     }
+
     function getAttendanceValue() {
       const checked = form.querySelector('input[name="attendance"]:checked');
       return checked ? checked.value : "";
     }
+
     function buildPayload() {
       const region = regionEl.value;
       const group = getGroup(region);
       const session = sessions[group];
-      const office = document.getElementById("office").value.trim();
-      const name = document.getElementById("name").value.trim();
+      const officeName = document.getElementById("office").value.trim();
+      const personName = document.getElementById("name").value.trim();
       const attendance = getAttendanceValue();
-      const otherNeedText = otherNeed.value.trim();
-      if (!region || !group || !office || !name || !attendance) return null;
-      if (attendance === "其他需求" && !otherNeedText) {
+      const otherNeeds = otherNeed.value.trim();
+
+      if (!region || !group || !officeName || !personName || !attendance) return null;
+
+      if (attendance === "其他需求" && !otherNeeds) {
         showMessage("err", "請於其他需求欄位簡述需求，或改選其他出席回覆。");
         return false;
       }
+
+      // 欄位名稱需對應 Apps Script：region / sessionName / audienceLabel / sessionDetails / officeName / personName / attendance / otherNeeds
       return {
         region,
-        sessionGroup: session.label,
-        sessionDetail: getSessionDetail(session),
-        attendees: session.attendees,
-        location: session.location,
-        office,
-        name,
+        sessionName: session.label,
+        audienceLabel: session.attendees,
+        sessionDetails: getSessionDetail(session),
+        officeName,
+        personName,
         attendance,
-        otherNeed: attendance === "其他需求" ? otherNeedText : "",
-        userAgent: navigator.userAgent
+        otherNeeds: attendance === "其他需求" ? otherNeeds : ""
       };
     }
-    function openConfirm(payload) {
-      summaryList.innerHTML = `
-        <div class="summary-item"><div class="summary-label">所屬地區</div><div class="summary-value">${payload.region}</div></div>
-        <div class="summary-item"><div class="summary-label">報名場次</div><div class="summary-value">${payload.sessionDetail}</div></div>
-        <div class="summary-item"><div class="summary-label">通訊處名稱</div><div class="summary-value">${payload.office}</div></div>
-        <div class="summary-item"><div class="summary-label">姓名</div><div class="summary-value">${payload.name}</div></div>
-        <div class="summary-item"><div class="summary-label">出席回覆</div><div class="summary-value">${payload.attendance}</div></div>
-        ${payload.otherNeed ? `<div class="summary-item"><div class="summary-label">其他需求</div><div class="summary-value">${payload.otherNeed}</div></div>` : ""}
-      `;
-      modal.classList.add("show");
-    }
-    function closeConfirm() { modal.classList.remove("show"); }
-    function postByHiddenForm(payload) {
-      const tempForm = document.createElement("form");
-      tempForm.method = "POST";
-      tempForm.action = SCRIPT_URL;
-      tempForm.target = "submitFrame";
-      tempForm.style.display = "none";
-      Object.keys(payload).forEach(key => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = payload[key];
-        tempForm.appendChild(input);
+
+    async function submitToGoogleSheet(payload) {
+      // 以 v1 可用的 JSON 格式送出，對應 Apps Script 內的 JSON.parse(e.postData.contents)
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
       });
-      document.body.appendChild(tempForm);
-      tempForm.submit();
-      tempForm.remove();
     }
 
     regionEl.addEventListener("change", renderSession);
+
     form.addEventListener("change", () => {
       const attendance = getAttendanceValue();
       if (attendance !== "其他需求") otherNeed.value = "";
     });
-    form.addEventListener("submit", (event) => {
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       clearMessage();
+
       const payload = buildPayload();
       if (payload === false) return;
       if (!payload) {
@@ -1243,11 +1236,21 @@
         return;
       }
 
-      postByHiddenForm(payload);
-      showMessage("ok", "已送出報名回覆，資料將寫入後台報名表。謝謝！");
-      form.reset();
-      renderSession();
+      try {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "送出中...";
+        await submitToGoogleSheet(payload);
+        showMessage("ok", "已送出報名回覆，資料將寫入後台報名表。謝謝！");
+        form.reset();
+        renderSession();
+      } catch (error) {
+        showMessage("err", "送出失敗，請稍後再試，或聯繫主辦單位協助確認。錯誤訊息：" + error.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "送出";
+      }
     });
+
     renderSession();
 
     const revealEls = document.querySelectorAll(".reveal");
