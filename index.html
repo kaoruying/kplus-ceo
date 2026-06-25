@@ -1064,7 +1064,7 @@
               <div id="message" class="message" aria-live="polite"></div>
               <div class="form-actions">
                 <button class="btn" type="submit">送出</button>
-                <div class="form-note">按下送出後，會先跳出資料確認視窗。</div>
+                <div class="form-note">按下送出後將直接送出報名回覆。</div>
               </div>
             </form>
           </section>
@@ -1242,20 +1242,12 @@
         showMessage("err", "請完整填寫必填欄位，並選擇出席回覆。");
         return;
       }
-      pendingPayload = payload;
-      openConfirm(payload);
-    });
-    editBtn.addEventListener("click", closeConfirm);
-    confirmBtn.addEventListener("click", () => {
-      if (!pendingPayload) return;
-      closeConfirm();
-      postByHiddenForm(pendingPayload);
+
+      postByHiddenForm(payload);
       showMessage("ok", "已送出報名回覆，資料將寫入後台報名表。謝謝！");
       form.reset();
       renderSession();
-      pendingPayload = null;
     });
-    modal.addEventListener("click", event => { if (event.target === modal) closeConfirm(); });
     renderSession();
 
     const revealEls = document.querySelectorAll(".reveal");
