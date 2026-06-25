@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#fff0e0" />
+  <meta name="theme-color" content="#fff8f2" />
   <title>K PLUS CEO講堂｜報名回覆</title>
   <style>
     :root {
@@ -12,9 +12,9 @@
       --ink-blue: #071d3c;
       --gold: #b8863f;
       --gold-2: #d7a457;
-      --gold-soft: #fff1d8;
-      --paper: #fff0e0;
-      --paper-2: #fff0e0;
+      --gold-soft: #fff4df;
+      --paper: #fff8f2;
+      --paper-2: #fff8f2;
       --soft-blue: #eef7ff;
       --white: #ffffff;
       --text: #1d2939;
@@ -23,10 +23,10 @@
       --shadow: 0 14px 34px rgba(24, 38, 65, .10);
       --radius: 24px;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
-      --cream: #fff0e0;
-      --cream-light: #fff8f0;
-      --cream-card: #fffaf5;
-      --blue-wash: #f1f8ff;
+      --cream: #fff8f2;
+      --cream-light: #fffdf8;
+      --cream-card: #ffffff;
+      --blue-wash: #f6fbff;
     }
 
     * { box-sizing: border-box; }
@@ -34,7 +34,7 @@
     body {
       margin: 0;
       color: var(--text);
-      background: #fff0e0;
+      background: #fff8f2;
       font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
     }
 
@@ -45,7 +45,7 @@
     .page {
       width: min(100%, 560px);
       margin: 0 auto;
-      background: #fff0e0;
+      background: #fff8f2;
       min-height: 100vh;
       box-shadow: 0 0 0 1px rgba(0,0,0,.04);
     }
@@ -59,7 +59,7 @@
       justify-content: space-between;
       gap: 12px;
       padding: 10px 14px;
-      background: rgba(255, 248, 240, .97);
+      background: rgba(255, 253, 248, .97);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(0,43,92,.10);
     }
@@ -98,7 +98,7 @@
 
     .hero {
       position: relative;
-      background: #fff0e0;
+      background: #fff8f2;
     }
 
     .hero img {
@@ -114,11 +114,11 @@
     }
 
     .section.tint {
-      background: linear-gradient(180deg, #fff0e0 0%, #fff8f0 100%);
+      background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%);
     }
 
     .section.blue-wash {
-      background: linear-gradient(180deg, #fff8f0 0%, #fff0e0 100%);
+      background: linear-gradient(180deg, #fffdf8 0%, #fff8f2 100%);
     }
 
     .tagline {
@@ -270,7 +270,7 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      background: #fff0e0;
+      background: #fff8f2;
       min-height: 150px;
     }
 
@@ -326,7 +326,7 @@
       margin: 10px 0 0;
       padding: 9px 11px;
       border-radius: 13px;
-      background: #fff8f0;
+      background: #fffdf8;
       border-left: 4px solid var(--gold);
       color: var(--deep-blue);
       font-size: 14px;
@@ -404,7 +404,7 @@
 
     .form-section {
       padding-bottom: 92px;
-      background: linear-gradient(180deg, #fff0e0 0%, #fff8f0 100%);
+      background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%);
     }
 
     .form-panel {
@@ -458,7 +458,7 @@
       padding: 16px;
       border-radius: 20px;
       color: var(--text);
-      background: #fff8f0;
+      background: #fffdf8;
       border: 1px solid rgba(181,138,80,.24);
     }
 
@@ -611,7 +611,7 @@
     .footer {
       padding: 28px 18px calc(34px + var(--safe-bottom));
       color: #667085;
-      background: #fff8f0;
+      background: #fffdf8;
       border-top: 1px solid rgba(0,43,92,.08);
       text-align: center;
       font-size: 13px;
@@ -666,7 +666,7 @@
     .confirm-row {
       padding: 12px 13px;
       border-radius: 15px;
-      background: #fff8f0;
+      background: #fffdf8;
       border: 1px solid rgba(0,43,92,.08);
     }
 
@@ -719,6 +719,26 @@
       .session-row { grid-template-columns: 100px minmax(0, 1fr); }
       .date { font-size: 25px; }
     }
+
+    /* v6 視覺調整：保留原本高階感，將整體底色柔化，避免米橘色過深 */
+    body, .page, .hero { background: #fff8f2; }
+    .section { background: #fff8f2; }
+    .section.tint { background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%); }
+    .section.blue-wash { background: linear-gradient(180deg, #fffdf8 0%, #fff8f2 100%); }
+    .venue-card, .speaker-card, .outline-card, .form-card, .form-panel, .reg-copy {
+      background: rgba(255, 255, 255, .94);
+      border-color: rgba(0, 59, 113, .10);
+    }
+    .spotlight, .quote-box, .intro-highlight {
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+    }
+    .quick-btn, .submit-btn, .primary-btn {
+      background: linear-gradient(135deg, #00509f 0%, #003b71 100%);
+      color: #fff;
+      border: 1px solid rgba(216, 170, 98, .65);
+      box-shadow: 0 8px 20px rgba(0, 59, 113, .24);
+    }
+
   </style>
 </head>
 <body>
