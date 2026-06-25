@@ -255,9 +255,9 @@
 
     .speaker-card {
       display: grid;
-      grid-template-columns: 104px 1fr;
+      grid-template-columns: 112px minmax(0, 1fr);
       gap: 14px;
-      align-items: stretch;
+      align-items: center;
       padding: 14px;
       background: var(--cream-card);
       border: 1px solid rgba(0, 59, 113, .10);
@@ -270,43 +270,49 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      background: #fff8f2;
-      min-height: 150px;
+      background: linear-gradient(180deg, #fffaf4 0%, #f2f8ff 100%);
+      min-height: 154px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
     }
 
     .speaker-photo img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center center;
+      filter: drop-shadow(0 10px 16px rgba(0, 43, 92, .10));
     }
 
-    .speaker-card.chiou .speaker-photo img { object-position: 52% 20%; }
-    .speaker-card.hsieh .speaker-photo img { object-position: 48% 45%; }
-    .speaker-card.chen .speaker-photo img { object-position: 50% 22%; }
+    .speaker-card.chiou .speaker-photo img,
+    .speaker-card.hsieh .speaker-photo img,
+    .speaker-card.chen .speaker-photo img { object-position: center center; }
 
     .speaker-info {
       min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 4px 0;
+      padding: 2px 0;
     }
 
     .speaker-role {
       color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.5;
-      font-weight: 700;
-      margin: 0 0 4px;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 750;
+      margin: 0 0 3px;
     }
 
     .speaker-name {
       margin: 0;
       color: var(--deep-blue);
-      font-size: 25px;
-      line-height: 1.18;
+      font-size: 24px;
+      line-height: 1.16;
       font-weight: 950;
-      letter-spacing: .03em;
+      letter-spacing: .02em;
     }
 
     .course-title {
@@ -318,7 +324,7 @@
       color: var(--deep-blue);
       background: #fff1d8;
       border: 1px solid rgba(183, 134, 63, .28);
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 950;
     }
 
@@ -330,16 +336,12 @@
       border-left: 4px solid var(--gold);
       color: var(--deep-blue);
       font-size: 14px;
-      line-height: 1.7;
-      font-weight: 750;
+      line-height: 1.65;
+      font-weight: 800;
     }
 
     .speaker-desc {
-      margin: 10px 0 0;
-      color: #344054;
-      font-size: 14.5px;
-      line-height: 1.75;
-      font-weight: 620;
+      display: none;
     }
 
     .outline-list {
@@ -739,6 +741,37 @@
       box-shadow: 0 8px 20px rgba(0, 59, 113, .24);
     }
 
+
+    /* v7 手機閱讀與講師照片調整 */
+    .section-title {
+      font-size: 30px;
+      letter-spacing: .005em;
+    }
+    @media (max-width: 520px) {
+      .section-title { font-size: 28px; }
+      .speaker-card {
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 12px;
+        padding: 13px;
+      }
+      .speaker-photo {
+        min-height: 156px;
+        max-height: 168px;
+      }
+      .speaker-name { font-size: 23px; }
+      .speaker-highlight {
+        font-size: 13.7px;
+        line-height: 1.62;
+        padding: 8px 10px;
+      }
+      .speaker-role { font-size: 11.8px; }
+    }
+    @media (max-width: 390px) {
+      .speaker-card { grid-template-columns: 104px minmax(0, 1fr); }
+      .speaker-photo { min-height: 148px; }
+      .speaker-highlight { font-size: 13.2px; }
+    }
+
   </style>
 </head>
 <body>
@@ -819,8 +852,8 @@
 
       <section class="section" id="speakers">
         <span class="tagline">講師陣容</span>
-        <h2 class="section-title">跨界經營視角，帶回可落地的領導啟發</h2>
-        <p class="section-lead">三位講師分別從零售經營、品牌溝通與跨國企業管理切入，把外部企業的實戰經驗，轉化為處經理可帶回通訊處運用的經營提醒。</p>
+        <h2 class="section-title">跨界經營視角<br>帶回領導啟發</h2>
+        <p class="section-lead">三位講師分別聚焦經營突破、溝通影響與教練式帶領。</p>
 
         <div class="speaker-list">
           <article class="speaker-card chiou">
@@ -829,9 +862,8 @@
               <p class="speaker-role">三商家購（美廉社）董事總經理</p>
               <h3 class="speaker-name">邱光隆</h3>
               <span class="course-title">逆境領導力</span>
-              <p class="speaker-highlight">具備零售通路、採購管理與連鎖據點經營的完整實戰經驗，長期帶領美廉社在競爭激烈的社區零售市場中建立定位、擴大規模，從第一家門市發展至全台 800 多家據點，打造出具備穩定複製能力的經營模式。</p>
-              <p class="speaker-desc">課程將從市場挑戰、據點複製、管理節奏與人才培育切入，帶出組織在成長瓶頸中如何重新找到突破方向，並將單點成功逐步轉化為可延續、可複製、可擴張的團隊經營能力。</p>
-            </div>
+              <p class="speaker-highlight">從第一家門市到全台 800 多家據點，聚焦市場定位、據點複製與管理節奏，帶回組織成長瓶頸中的突破思路。</p>
+                          </div>
           </article>
 
           <article class="speaker-card hsieh">
@@ -840,9 +872,8 @@
               <p class="speaker-role">前台灣奧美集團董事總經理</p>
               <h3 class="speaker-name">謝馨慧</h3>
               <span class="course-title">溝通影響力</span>
-              <p class="speaker-highlight">長期深耕品牌、公關、危機管理與高階溝通領域，曾帶領台灣奧美團隊服務多元產業客戶，累積豐富的企業溝通、組織協調與領導管理經驗。專業核心聚焦於洞察人心、判讀情境，並將複雜訊息轉化為能被理解、被信任、被行動的溝通方式。</p>
-              <p class="speaker-desc">課程將從看懂局勢、掌握人心、建立領導場域與形成信任影響力切入，協助主管提升溝通定調、團隊共識與組織推動能力，讓方向不只是被傳達，更能被理解、認同並轉化為行動。</p>
-            </div>
+              <p class="speaker-highlight">以品牌、公關與危機管理經驗切入，聚焦看懂人心、掌握溝通場域，帶回建立信任與影響力的方法。</p>
+                          </div>
           </article>
 
           <article class="speaker-card chen">
@@ -851,17 +882,16 @@
               <p class="speaker-role">前台灣微軟首席營運長</p>
               <h3 class="speaker-name">陳慧蓉</h3>
               <span class="course-title">教練引導力</span>
-              <p class="speaker-highlight">具備跨國企業高階管理、數位轉型與組織領導經驗，曾任台灣微軟首席營運長，長期帶領團隊面對高目標、高變動與高協作需求的工作環境。後續投入高階主管教練與領導力發展，專注於信任建立、潛能激發與高成長團隊文化養成。</p>
-              <p class="speaker-desc">課程將從目標管理、教練式引導、信任賦能與成長心態切入，協助主管在壓力與變動中穩定團隊方向，透過提問、回饋與協作文化，帶動團隊形成更高的自主性、學習力與持續成長動能。</p>
-            </div>
+              <p class="speaker-highlight">以跨國企業高階管理與教練經驗切入，聚焦信任建立、潛能激發與高成長團隊，帶回壓力下的教練式帶領。</p>
+                          </div>
           </article>
         </div>
       </section>
 
       <section class="section blue-wash" id="outline">
         <span class="tagline">授課大綱</span>
-        <h2 class="section-title">三大領導力主題，對應處經理實戰場景</h2>
-        <p class="section-lead">每一堂皆聚焦處經理在經營、帶人、溝通與組織發展上的真實挑戰，協助將外部企業經驗轉化為可運用的管理思維。</p>
+        <h2 class="section-title">三大領導力主題<br>對應經營現場</h2>
+        <p class="section-lead">聚焦經營、帶人、溝通與組織發展，帶回可運用的管理思維。</p>
 
         <div class="outline-list">
           <article class="outline-card">
