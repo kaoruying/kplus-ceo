@@ -666,6 +666,108 @@
       .summary-item { grid-template-columns: 1fr; gap: 2px; }
       .modal-actions { grid-template-columns: 1fr; }
     }
+
+
+    /* v12：講師卡手機版重整、刪除報名說明卡後的表單排版 */
+    .speaker-panel {
+      min-height: auto;
+      padding: 18px;
+      overflow: visible;
+    }
+    .speaker-panel::before {
+      border-radius: inherit;
+    }
+    .speaker-card-top {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .speaker-avatar {
+      height: 220px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fff8ec 0%, #f6ead8 100%);
+      border: 1px solid rgba(201,155,85,.22);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.65);
+    }
+    .speaker-avatar img {
+      width: 100%;
+      height: 205px;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 14px 18px rgba(16,41,76,.14));
+    }
+    .speaker-heading {
+      min-width: 0;
+    }
+    .speaker-role {
+      font-size: clamp(18px, 4.6vw, 28px);
+      line-height: 1.45;
+    }
+    .speaker-name {
+      margin-top: 8px;
+      font-size: clamp(32px, 8.2vw, 52px);
+    }
+    .speaker-topic {
+      margin-top: 12px;
+      font-size: clamp(17px, 4.3vw, 23px);
+    }
+    .speaker-points {
+      margin: 16px 0 0;
+      padding: 16px 18px 16px 36px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,248,236,.76));
+      border: 1px solid rgba(201,155,85,.18);
+      font-size: 16px;
+      line-height: 1.72;
+    }
+    .speaker-points li + li { margin-top: 7px; }
+
+    .reg-grid {
+      grid-template-columns: 1fr;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form-panel {
+      width: 100%;
+    }
+
+    @media (max-width: 560px) {
+      .speaker-panel { padding: 15px; }
+      .speaker-card-top {
+        grid-template-columns: 122px 1fr;
+        gap: 14px;
+      }
+      .speaker-avatar {
+        height: 178px;
+        border-radius: 20px;
+      }
+      .speaker-avatar img {
+        height: 166px;
+      }
+      .speaker-role { font-size: 16px; line-height: 1.42; }
+      .speaker-name { font-size: 30px; line-height: 1.08; }
+      .speaker-topic { font-size: 15px; padding: 7px 12px; }
+      .speaker-points {
+        font-size: 14.5px;
+        line-height: 1.68;
+        padding: 14px 15px 14px 31px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .speaker-card-top { grid-template-columns: 112px 1fr; gap: 12px; }
+      .speaker-avatar { height: 166px; }
+      .speaker-avatar img { height: 154px; }
+      .speaker-name { font-size: 28px; }
+      .speaker-role { font-size: 15px; }
+    }
+
   </style>
 </head>
 <body>
@@ -702,57 +804,53 @@
 
         <div class="speaker-stage">
           <article class="speaker-panel reveal">
-            <div class="speaker-panel-inner">
-              <div class="speaker-figure"><img src="assets/chiou-kuanglung.webp" alt="邱光隆講師照片"></div>
-              <div class="speaker-copy">
-                <div class="speaker-role">三商家購（美廉社）<br>董事總經理</div>
+            <div class="speaker-card-top">
+              <div class="speaker-avatar"><img src="assets/chiou-kuanglung.webp" alt="邱光隆講師照片"></div>
+              <div class="speaker-heading">
+                <div class="speaker-role">三商家購（美廉社）董事總經理</div>
                 <div class="speaker-name">邱光隆</div>
                 <div class="speaker-topic">逆境領導力</div>
-                <div class="gold-rule"></div>
-                <ul class="speaker-points">
-                  <li>從市場挑戰看定位建立與經營突破。</li>
-                  <li>由單點成功延伸至可複製的據點經營。</li>
-                  <li>以幹部養成與人才培育推動組織擴張。</li>
-                </ul>
               </div>
             </div>
+            <ul class="speaker-points">
+              <li>從市場挑戰看定位建立與經營突破。</li>
+              <li>由單點成功延伸至可複製的據點經營。</li>
+              <li>以幹部養成與人才培育推動組織擴張。</li>
+            </ul>
           </article>
 
           <article class="speaker-panel reveal delay-1">
-            <div class="speaker-panel-inner">
-              <div class="speaker-figure"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧講師照片"></div>
-              <div class="speaker-copy">
-                <div class="speaker-role">前台灣奧美集團<br>董事總經理</div>
+            <div class="speaker-card-top">
+              <div class="speaker-avatar"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧講師照片"></div>
+              <div class="speaker-heading">
+                <div class="speaker-role">前台灣奧美集團董事總經理</div>
                 <div class="speaker-name">謝馨慧</div>
                 <div class="speaker-topic">溝通影響力</div>
-                <div class="gold-rule"></div>
-                <ul class="speaker-points">
-                  <li>從品牌、公關與危機管理看高階溝通。</li>
-                  <li>掌握人心、局勢與不同世代溝通關鍵。</li>
-                  <li>建立信任與影響力，讓共識轉化為行動。</li>
-                </ul>
               </div>
             </div>
+            <ul class="speaker-points">
+              <li>從品牌、公關與危機管理看高階溝通。</li>
+              <li>掌握人心、局勢與不同世代溝通關鍵。</li>
+              <li>建立信任與影響力，讓共識轉化為行動。</li>
+            </ul>
           </article>
 
           <article class="speaker-panel reveal delay-2">
-            <div class="speaker-panel-inner">
-              <div class="speaker-figure"><img src="assets/chen-flora.webp" alt="陳慧蓉講師照片"></div>
-              <div class="speaker-copy">
-                <div class="speaker-role">前台灣微軟<br>首席營運長</div>
+            <div class="speaker-card-top">
+              <div class="speaker-avatar"><img src="assets/chen-flora.webp" alt="陳慧蓉講師照片"></div>
+              <div class="speaker-heading">
+                <div class="speaker-role">前台灣微軟首席營運長</div>
                 <div class="speaker-name">陳慧蓉</div>
                 <div class="speaker-topic">教練引導力</div>
-                <div class="gold-rule"></div>
-                <ul class="speaker-points">
-                  <li>從跨國企業管理看高目標團隊帶領。</li>
-                  <li>以教練式引導建立信任、激發潛能。</li>
-                  <li>運用成長心態與協作文化推動團隊進化。</li>
-                </ul>
               </div>
             </div>
+            <ul class="speaker-points">
+              <li>從跨國企業管理看高目標團隊帶領。</li>
+              <li>以教練式引導建立信任、激發潛能。</li>
+              <li>運用成長心態與協作文化推動團隊進化。</li>
+            </ul>
           </article>
-        </div>
-      </div>
+        </div>      </div>
     </section>
 
     <section class="section syllabus" id="syllabus">
@@ -837,19 +935,10 @@
         <span class="tag reveal">報名回覆</span>
         <h2 class="section-title reveal delay-1">請完成出席回覆</h2>
         <div class="reg-grid">
-          <aside class="reg-intro reveal">
-            <div class="reg-logos">
-              <img class="kgi" src="assets/logo-kgi-blue.png" alt="凱基人壽">
-              <span>×</span>
-              <img class="bw" src="assets/logo-bw-light.png" alt="商周CEO學院">
-            </div>
-            <h3>K PLUS CEO講堂</h3>
-            <p>請先選擇所屬地區，系統會自動帶入對應場次。送出前會再次跳出確認視窗，確認後才會寫入後台報名資料。</p>
-          </aside>
           <section class="form-panel reveal delay-1" aria-label="報名表單">
             <form id="registrationForm">
               <div class="field">
-                <label for="region">先選擇地區<span class="req">*</span></label>
+                <label for="region">地區<span class="req">*</span></label>
                 <select id="region" name="region" required>
                   <option value="">請選擇所屬地區</option>
                   <option value="北一">北一</option>
@@ -861,7 +950,7 @@
                 </select>
               </div>
               <div class="field">
-                <label>地區與場次</label>
+                <label>場次</label>
                 <div id="sessionBox" class="auto-session empty">請先選擇地區，系統將自動帶入台北場或高雄場。</div>
               </div>
               <div class="field">
