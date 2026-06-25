@@ -1,1356 +1,1097 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#fff8f2" />
-  <title>K PLUS CEO講堂｜報名回覆</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K PLUS CEO講堂｜凱基人壽 × 商周CEO學院</title>
+  <meta name="description" content="K PLUS CEO講堂報名頁｜凱基人壽 × 商周CEO學院，給處經理的高階經營講堂。" />
   <style>
     :root {
-      --kgi-blue: #00509f;
-      --deep-blue: #003b71;
-      --ink-blue: #071d3c;
-      --gold: #b8863f;
-      --gold-2: #d7a457;
-      --gold-soft: #fff4df;
-      --paper: #fff8f2;
-      --paper-2: #fff8f2;
-      --soft-blue: #eef7ff;
-      --white: #ffffff;
-      --text: #1d2939;
-      --muted: #667085;
-      --line: rgba(0, 59, 113, .13);
-      --shadow: 0 14px 34px rgba(24, 38, 65, .10);
-      --radius: 24px;
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --navy-950: #041832;
+      --navy-900: #08234a;
+      --navy-800: #0b376d;
+      --kgi-blue: #004b93;
+      --blue-soft: #e6f1ff;
       --cream: #fff8f2;
-      --cream-light: #fffdf8;
-      --cream-card: #ffffff;
-      --blue-wash: #f6fbff;
+      --cream-2: #fff2e4;
+      --paper: #ffffff;
+      --gold: #c99b55;
+      --gold-2: #e5bf7b;
+      --gold-3: #f7dfad;
+      --ink: #132033;
+      --muted: #657184;
+      --red: #c7111c;
+      --line: rgba(8, 35, 74, .13);
+      --dark-panel: #242c31;
+      --dark-panel-2: #1b252c;
+      --shadow: 0 18px 48px rgba(16, 41, 76, .12);
+      --shadow-dark: 0 26px 68px rgba(0,0,0,.24);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --wrap: min(1100px, calc(100vw - 32px));
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: var(--text);
-      background: #fff8f2;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255,255,255,.95), transparent 20%),
+        linear-gradient(180deg, #fff8f2 0%, #fffaf5 48%, #ffffff 100%);
       font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
     }
-
-    img { max-width: 100%; display: block; }
-    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; }
+    .wrap { width: var(--wrap); margin: 0 auto; }
 
-    .page {
-      width: min(100%, 560px);
-      margin: 0 auto;
-      background: #fff8f2;
-      min-height: 100vh;
-      box-shadow: 0 0 0 1px rgba(0,0,0,.04);
-    }
-
-    .sticky-cta {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 30;
+      background: rgba(255, 248, 242, .9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(8, 35, 74, .08);
+    }
+    .topbar-inner {
+      min-height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      background: rgba(255, 253, 248, .97);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0,43,92,.10);
+      gap: 14px;
+      padding: 10px 0;
     }
-
-    .sticky-logos {
+    .brand-logos {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       min-width: 0;
-      overflow: hidden;
     }
-
-    .sticky-logos img:first-child { width: 92px; flex: 0 0 auto; }
-    .sticky-logos img:last-child { width: 106px; flex: 0 0 auto; }
-    .sticky-x {
-      font-size: 19px;
-      line-height: 1;
-      color: var(--deep-blue);
-      font-weight: 400;
-      flex: 0 0 auto;
-    }
-
-    .quick-btn {
-      border: 0;
-      white-space: nowrap;
-      color: #fff;
-      background: linear-gradient(135deg, #00509f 0%, #003b71 100%);
-      padding: 10px 15px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 950;
-      text-decoration: none;
-      border: 1px solid rgba(216, 170, 98, .55);
-      box-shadow: 0 8px 20px rgba(0, 59, 113, .28);
-    }
-
-    .hero {
-      position: relative;
-      background: #fff8f2;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-    }
-
-    main { overflow: hidden; }
-
-    .section {
-      padding: 38px 18px;
-      background: var(--paper-2);
-    }
-
-    .section.tint {
-      background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%);
-    }
-
-    .section.blue-wash {
-      background: linear-gradient(180deg, #fffdf8 0%, #fff8f2 100%);
-    }
-
-    .tagline {
+    .brand-logos img.logo-kgi { width: 112px; }
+    .brand-logos img.logo-bw { width: 126px; }
+    .brand-x { color: var(--navy-900); font-size: 22px; font-weight: 300; line-height: 1; }
+    .top-cta {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(183, 134, 63, .14);
-      color: #9b6b2c;
-      font-weight: 950;
-      font-size: 15px;
-      letter-spacing: .04em;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      margin: 0 0 12px;
-      color: var(--deep-blue);
-      font-size: 31px;
-      line-height: 1.22;
-      letter-spacing: .01em;
-      font-weight: 950;
-    }
-
-    .section-lead {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.9;
-    }
-
-    .venue-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .venue-card {
-      padding: 20px 18px;
-      border-radius: var(--radius);
-      background: var(--cream-card);
-      border: 1px solid rgba(0, 59, 113, .10);
-      box-shadow: var(--shadow);
-    }
-
-    .venue-title {
-      display: grid;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .venue-title h3 {
-      margin: 0;
-      color: var(--deep-blue);
-      font-size: 24px;
-      line-height: 1.34;
-      font-weight: 950;
-      letter-spacing: .01em;
-    }
-
-    .venue-title .audience-inline {
-      color: #344054;
-      font-size: 13px;
-      line-height: 1.6;
-      font-weight: 800;
-    }
-
-    .session-row {
-      display: grid;
-      grid-template-columns: 108px minmax(0, 1fr);
-      gap: 14px;
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .session-row:first-of-type { border-top: 0; padding-top: 0; }
-    .session-row:last-child { padding-bottom: 0; }
-
-    .date-block { color: var(--deep-blue); }
-
-    .date {
-      display: block;
-      font-size: 26px;
-      line-height: 1;
-      font-weight: 950;
-      letter-spacing: 0;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .time-pill {
-      display: inline-flex;
-      margin-top: 9px;
-      padding: 6px 10px;
-      border-radius: 9px;
-      color: #001a35;
-      background: #e5bb73;
-      font-size: 15px;
-      font-weight: 950;
-    }
-
-    .session-info h4 {
-      margin: 0;
-      color: var(--deep-blue);
-      font-size: 18px;
-      line-height: 1.48;
-      font-weight: 950;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 8px;
-      align-items: baseline;
-    }
-
-    .session-info h4 em {
-      color: var(--gold);
-      font-style: normal;
-      margin-left: 0;
-      white-space: normal;
-    }
-
-    .session-info p {
-      margin: 7px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
-      font-weight: 700;
-    }
-
-    .speaker-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .speaker-card {
-      display: grid;
-      grid-template-columns: 112px minmax(0, 1fr);
-      gap: 14px;
-      align-items: center;
-      padding: 14px;
-      background: var(--cream-card);
-      border: 1px solid rgba(0, 59, 113, .10);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .speaker-photo {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #fffaf4 0%, #f2f8ff 100%);
-      min-height: 154px;
-      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px;
+      min-height: 40px;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy-900), var(--kgi-blue));
+      box-shadow: 0 10px 22px rgba(0, 75, 147, .20);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
-    .speaker-photo img {
+    .hero-visual {
+      background: #fff;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(8,35,74,.08);
+    }
+    .hero-visual img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
-      object-position: center center;
-      filter: drop-shadow(0 10px 16px rgba(0, 43, 92, .10));
     }
 
-    .speaker-card.chiou .speaker-photo img,
-    .speaker-card.hsieh .speaker-photo img,
-    .speaker-card.chen .speaker-photo img { object-position: center center; }
+    .brand-statement {
+      padding: 18px 0 24px;
+      background:
+        linear-gradient(180deg, rgba(255,248,242,.98), rgba(255,255,255,.98));
+    }
+    .statement-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      padding: 22px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,240,224,.88));
+      border: 1px solid rgba(201,155,85,.22);
+      box-shadow: 0 12px 30px rgba(16, 41, 76, .08);
+    }
+    .statement-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--navy-900), var(--gold));
+    }
+    .statement-card strong {
+      display: block;
+      color: var(--navy-900);
+      font-size: clamp(24px, 5.8vw, 40px);
+      line-height: 1.25;
+      letter-spacing: .02em;
+      font-weight: 950;
+    }
+    .statement-card span {
+      display: block;
+      margin-top: 8px;
+      color: #a97835;
+      font-size: clamp(18px, 4.7vw, 30px);
+      line-height: 1.45;
+      font-weight: 950;
+    }
 
-    .speaker-info {
-      min-width: 0;
+    .section { padding: 54px 0; }
+    .section-title {
+      margin: 0;
+      color: var(--navy-900);
+      font-size: clamp(32px, 7vw, 54px);
+      line-height: 1.18;
+      letter-spacing: .04em;
+      font-weight: 950;
+    }
+    .section-lead {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 650;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--navy-900);
+      background: linear-gradient(135deg, #fff8ec, #f6dfb2);
+      border: 1px solid rgba(201,155,85,.35);
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: .04em;
+    }
+
+    .speakers {
+      background:
+        radial-gradient(circle at 15% 12%, rgba(201,155,85,.12), transparent 22%),
+        linear-gradient(180deg, #fff8f2 0%, #fff 100%);
+    }
+    .speaker-stage {
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+    .speaker-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--dark-panel) 0%, var(--dark-panel-2) 100%);
+      color: #fff;
+      box-shadow: var(--shadow-dark);
+      border: 1px solid rgba(255,255,255,.08);
+      isolation: isolate;
+    }
+    .speaker-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.18), rgba(0,0,0,0)),
+        radial-gradient(circle at 90% 8%, rgba(201,155,85,.18), transparent 24%);
+      z-index: -1;
+    }
+    .speaker-panel-inner {
+      display: grid;
+      grid-template-columns: 43% 57%;
+      min-height: 420px;
+      align-items: stretch;
+    }
+    .speaker-figure {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 26px 8px 0;
+      overflow: hidden;
+    }
+    .speaker-figure img {
+      width: min(92%, 290px);
+      max-height: 390px;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 18px 26px rgba(0,0,0,.35));
+      transform-origin: center bottom;
+    }
+    .speaker-copy {
+      padding: 34px 28px 30px 10px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2px 0;
+      min-width: 0;
     }
-
     .speaker-role {
-      color: var(--muted);
-      font-size: 12px;
+      color: rgba(255,255,255,.94);
+      font-size: clamp(20px, 4.8vw, 30px);
       line-height: 1.45;
-      font-weight: 750;
-      margin: 0 0 3px;
-    }
-
-    .speaker-name {
-      margin: 0;
-      color: var(--deep-blue);
-      font-size: 24px;
-      line-height: 1.16;
       font-weight: 950;
       letter-spacing: .02em;
     }
-
-    .course-title {
-      display: inline-flex;
-      width: fit-content;
-      margin-top: 7px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      color: var(--deep-blue);
-      background: #fff1d8;
-      border: 1px solid rgba(183, 134, 63, .28);
-      font-size: 14px;
+    .speaker-name {
+      margin-top: 12px;
+      color: white;
+      font-size: clamp(28px, 7vw, 48px);
+      line-height: 1.05;
       font-weight: 950;
+      letter-spacing: .05em;
     }
-
-    .speaker-highlight {
-      margin: 10px 0 0;
-      padding: 9px 11px;
-      border-radius: 13px;
-      background: #fffdf8;
-      border-left: 4px solid var(--gold);
-      color: var(--deep-blue);
-      font-size: 14px;
-      line-height: 1.65;
-      font-weight: 800;
+    .speaker-topic {
+      margin-top: 12px;
+      color: var(--gold-2);
+      font-size: clamp(18px, 4.8vw, 28px);
+      line-height: 1.25;
+      font-weight: 950;
+      letter-spacing: .08em;
     }
-
-    .speaker-desc {
-      display: none;
+    .gold-rule {
+      width: min(220px, 100%);
+      height: 1px;
+      margin: 16px 0 14px;
+      background: linear-gradient(90deg, var(--gold), transparent);
     }
+    .speaker-points {
+      margin: 0;
+      padding-left: 20px;
+      color: rgba(255,255,255,.86);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .speaker-points li + li { margin-top: 6px; }
 
-    .outline-list {
+    .syllabus {
+      background: #fff;
+    }
+    .outline-grid {
+      margin-top: 24px;
       display: grid;
-      gap: 14px;
-      margin-top: 22px;
+      gap: 16px;
     }
-
     .outline-card {
-      border-radius: 22px;
-      background: var(--cream-card);
-      border: 1px solid rgba(0, 59, 113, .10);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #ffffff, #fffaf5);
+      border: 1px solid rgba(8,35,74,.10);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-
-    .outline-header {
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #fffaf5 0%, #fff3e8 100%);
+    .outline-head {
+      padding: 18px 20px;
+      background: linear-gradient(135deg, var(--navy-900), var(--kgi-blue));
+      color: #fff;
     }
-
-    .outline-theme {
-      display: inline-flex;
-      width: fit-content;
-      padding: 5px 10px;
-      border-radius: 999px;
-      color: var(--deep-blue);
-      background: var(--gold-soft);
-      font-size: 13.5px;
-      line-height: 1.3;
+    .outline-head .subject {
+      font-size: 22px;
       font-weight: 950;
-      margin-bottom: 9px;
+      letter-spacing: .06em;
+      line-height: 1.25;
+    }
+    .outline-head .teacher {
+      margin-top: 6px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 750;
+    }
+    .outline-list {
+      margin: 0;
+      padding: 18px 20px 20px;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .outline-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #263349;
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 750;
+    }
+    .outline-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
     }
 
-    .outline-header h3 {
+    .schedule-section {
+      background: linear-gradient(180deg, #fff8f2, #fff);
+    }
+    .schedule-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .schedule-card {
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: #fff;
+      border: 1px solid rgba(8,35,74,.12);
+      box-shadow: var(--shadow);
+    }
+    .schedule-title {
       margin: 0;
-      color: var(--deep-blue);
+      color: var(--navy-900);
       font-size: 24px;
       line-height: 1.35;
       font-weight: 950;
+      letter-spacing: .02em;
     }
-
-    .outline-header p {
-      margin: 6px 0 0;
-      color: #475467;
-      font-size: 13px;
-      line-height: 1.65;
-      font-weight: 750;
-    }
-
-    .outline-body {
-      margin: 0;
-      padding: 14px 18px 18px 34px;
-      color: #344054;
-      font-size: 15.5px;
-      line-height: 1.8;
-      font-weight: 650;
-    }
-
-    .outline-body li + li { margin-top: 9px; }
-
-    .form-section {
-      padding-bottom: 92px;
-      background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%);
-    }
-
-    .form-panel {
-      margin-top: 20px;
-      padding: 18px;
-      background: var(--cream-card);
-      border-radius: 28px;
-      border: 1px solid rgba(0,43,92,.08);
-      box-shadow: var(--shadow);
-    }
-
-    form { display: grid; gap: 18px; }
-
-    label.field-label {
+    .schedule-title small {
       display: block;
-      margin-bottom: 8px;
-      color: var(--deep-blue);
-      font-size: 15px;
-      line-height: 1.4;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .schedule-event {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      padding: 17px 0;
+      border-top: 1px solid rgba(8,35,74,.10);
+    }
+    .schedule-event:first-of-type { border-top: 0; margin-top: 8px; }
+    .date-block {
+      color: var(--navy-900);
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: .04em;
+    }
+    .date-block span {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 5px 10px;
+      color: #071425;
+      background: linear-gradient(135deg, var(--gold-3), var(--gold-2));
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 950;
     }
-
-    .required { color: #c23b2a; margin-left: 4px; }
-
-    select, input[type="text"], textarea {
-      width: 100%;
-      min-height: 52px;
-      padding: 13px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,43,92,.16);
-      color: var(--text);
-      background: #fff;
-      outline: 0;
-      font-size: 17px;
-      transition: box-shadow .16s ease, border-color .16s ease;
-    }
-
-    select:focus, input[type="text"]:focus, textarea:focus {
-      border-color: var(--kgi-blue);
-      box-shadow: 0 0 0 4px rgba(0,80,159,.08);
-    }
-
-    textarea {
-      min-height: 86px;
-      resize: vertical;
-      line-height: 1.7;
-    }
-
-    .auto-session {
-      display: none;
-      padding: 16px;
-      border-radius: 20px;
-      color: var(--text);
-      background: #fffdf8;
-      border: 1px solid rgba(181,138,80,.24);
-    }
-
-    .auto-session.active { display: block; }
-
-    .auto-session h3 {
-      margin: 0 0 8px;
-      color: var(--deep-blue);
-      font-size: 19px;
+    .event-info strong {
+      display: block;
+      color: var(--navy-900);
+      font-size: 18px;
       line-height: 1.45;
       font-weight: 950;
     }
-
-    .auto-session .audience {
-      display: block;
-      margin-top: 2px;
-      color: #475467;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .auto-session ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-      color: #344054;
-      line-height: 1.8;
-      font-weight: 800;
+    .event-info p {
+      margin: 5px 0 0;
+      color: var(--muted);
       font-size: 14px;
+      line-height: 1.65;
+      font-weight: 700;
     }
 
-    .attendance-group { display: grid; gap: 10px; }
-
-    .radio-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
-      align-items: start;
-      padding: 14px;
-      border: 1px solid rgba(0,43,92,.14);
-      border-radius: 18px;
-      background: #fffaf5;
-      cursor: pointer;
-    }
-
-    .radio-card.major {
-      padding: 18px 15px;
-      border: 2px solid rgba(181, 138, 80, .36);
-      background: linear-gradient(180deg, #fffaf5, #fff1e0);
-    }
-
-    .radio-card input {
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      margin: 1px 0 0;
-      border: 2px solid rgba(0,43,92,.28);
-      border-radius: 7px;
+    .registration {
       background: #fff;
-      position: relative;
+      padding-bottom: 70px;
     }
-
-    .radio-card input:checked {
-      border-color: var(--deep-blue);
-      background: var(--deep-blue);
-    }
-
-    .radio-card input:checked::after {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 2px;
-      width: 7px;
-      height: 12px;
-      border: solid #fff;
-      border-width: 0 3px 3px 0;
-      transform: rotate(45deg);
-    }
-
-    .radio-title {
-      display: block;
-      color: var(--deep-blue);
-      font-size: 16px;
-      line-height: 1.5;
-      font-weight: 950;
-    }
-
-    .major .radio-title { font-size: 19px; }
-
-    .radio-note {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
-      font-weight: 700;
-    }
-
-    .other-needs-wrap {
-      display: none;
-      grid-column: 1 / -1;
-      margin-top: 4px;
-    }
-
-    .other-needs-wrap.active { display: block; }
-
-    .submit-btn {
-      width: 100%;
-      min-height: 56px;
-      border: 0;
-      border-radius: 18px;
-      color: #fff;
-      background: linear-gradient(135deg, #00509f 0%, #003b71 100%);
-      font-size: 18px;
-      font-weight: 950;
-      border: 1px solid rgba(216, 170, 98, .45);
-      box-shadow: 0 14px 28px rgba(0,80,159,.24);
-    }
-
-    .submit-btn:disabled { opacity: .75; filter: grayscale(.15); }
-
-    .error-text {
-      display: none;
-      padding: 12px 14px;
-      border-radius: 14px;
-      color: #9b1c1c;
-      background: #fff1f1;
-      border: 1px solid #ffd2d2;
-      font-size: 14px;
-      line-height: 1.6;
-      font-weight: 800;
-    }
-
-    .error-text.show { display: block; }
-
-    .success-box {
-      display: none;
-      padding: 14px;
-      border-radius: 16px;
-      color: #116149;
-      background: #ecfdf5;
-      border: 1px solid #b9f3d7;
-      font-size: 14px;
-      line-height: 1.7;
-      font-weight: 800;
-    }
-
-    .success-box.show { display: block; }
-
-    .footer {
-      padding: 28px 18px calc(34px + var(--safe-bottom));
-      color: #667085;
-      background: #fffdf8;
-      border-top: 1px solid rgba(0,43,92,.08);
-      text-align: center;
-      font-size: 13px;
-      line-height: 1.8;
-      font-weight: 700;
-    }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 16px;
-      background: rgba(3, 18, 38, .62);
-    }
-
-    .modal-backdrop.show { display: flex; }
-
-    .modal {
-      width: min(100%, 520px);
-      max-height: calc(100vh - 34px);
-      overflow: auto;
-      background: var(--cream-card);
-      border-radius: 28px;
-      padding: 22px 18px 18px;
-      box-shadow: 0 -20px 56px rgba(0,0,0,.2);
-    }
-
-    .modal h2 {
-      margin: 0 0 8px;
-      color: var(--deep-blue);
-      font-size: 24px;
-      font-weight: 950;
-    }
-
-    .modal p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      font-weight: 700;
-    }
-
-    .confirm-list {
+    .reg-grid {
+      margin-top: 24px;
       display: grid;
-      gap: 10px;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .reg-intro, .form-panel {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, #fff, #fffaf5);
+      border: 1px solid rgba(8,35,74,.12);
+      box-shadow: var(--shadow);
+    }
+    .reg-intro { padding: 24px; }
+    .reg-logos {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 18px;
+      flex-wrap: wrap;
     }
-
-    .confirm-row {
-      padding: 12px 13px;
-      border-radius: 15px;
-      background: #fffdf8;
-      border: 1px solid rgba(0,43,92,.08);
-    }
-
-    .confirm-row strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--deep-blue);
-      font-size: 13px;
+    .reg-logos .kgi { width: 120px; }
+    .reg-logos .bw { width: 142px; }
+    .reg-logos span { color: var(--gold); font-size: 22px; }
+    .reg-intro h3 {
+      margin: 0;
+      color: var(--navy-900);
+      font-size: 28px;
+      line-height: 1.25;
       font-weight: 950;
     }
-
-    .confirm-row span {
+    .reg-intro p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+    .form-panel { padding: 24px; }
+    form { display: grid; gap: 17px; }
+    .field label {
       display: block;
-      color: #344054;
-      font-size: 14px;
-      line-height: 1.65;
-      font-weight: 750;
-    }
-
-    .modal-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .modal-actions button {
-      min-height: 52px;
-      border-radius: 16px;
-      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--navy-900);
+      font-size: 15px;
       font-weight: 950;
-      border: 0;
-    }
-
-    .edit-btn {
-      color: var(--deep-blue);
-      background: #fff1d8;
-    }
-
-    .confirm-btn {
-      color: #fff;
-      background: linear-gradient(135deg, #00509f 0%, #003b71 100%);
-    }
-
-    @media (max-width: 380px) {
-      .sticky-logos img:first-child { width: 80px; }
-      .sticky-logos img:last-child { width: 94px; }
-      .quick-btn { padding: 9px 12px; font-size: 13px; }
-      .section { padding-left: 14px; padding-right: 14px; }
-      .speaker-card { grid-template-columns: 96px 1fr; }
-      .session-row { grid-template-columns: 100px minmax(0, 1fr); }
-      .date { font-size: 25px; }
-    }
-
-    /* v6 視覺調整：保留原本高階感，將整體底色柔化，避免米橘色過深 */
-    body, .page, .hero { background: #fff8f2; }
-    .section { background: #fff8f2; }
-    .section.tint { background: linear-gradient(180deg, #fff8f2 0%, #fffdf8 100%); }
-    .section.blue-wash { background: linear-gradient(180deg, #fffdf8 0%, #fff8f2 100%); }
-    .venue-card, .speaker-card, .outline-card, .form-card, .form-panel, .reg-copy {
-      background: rgba(255, 255, 255, .94);
-      border-color: rgba(0, 59, 113, .10);
-    }
-    .spotlight, .quote-box, .intro-highlight {
-      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
-    }
-    .quick-btn, .submit-btn, .primary-btn {
-      background: linear-gradient(135deg, #00509f 0%, #003b71 100%);
-      color: #fff;
-      border: 1px solid rgba(216, 170, 98, .65);
-      box-shadow: 0 8px 20px rgba(0, 59, 113, .24);
-    }
-
-
-    /* v7 手機閱讀與講師照片調整 */
-    .section-title {
-      font-size: 30px;
-      letter-spacing: .005em;
-    }
-    @media (max-width: 520px) {
-      .section-title { font-size: 28px; }
-      .speaker-card {
-        grid-template-columns: 112px minmax(0, 1fr);
-        gap: 12px;
-        padding: 13px;
-      }
-      .speaker-photo {
-        min-height: 156px;
-        max-height: 168px;
-      }
-      .speaker-name { font-size: 23px; }
-      .speaker-highlight {
-        font-size: 13.7px;
-        line-height: 1.62;
-        padding: 8px 10px;
-      }
-      .speaker-role { font-size: 11.8px; }
-    }
-    @media (max-width: 390px) {
-      .speaker-card { grid-template-columns: 104px minmax(0, 1fr); }
-      .speaker-photo { min-height: 148px; }
-      .speaker-highlight { font-size: 13.2px; }
-    }
-
-  
-
-    /* v8：區塊順序與手機視覺優化 */
-    .hero-message {
-      padding: 18px 18px 20px;
-      background:
-        linear-gradient(135deg, rgba(0, 80, 159, .98) 0%, rgba(0, 59, 113, .98) 100%);
-      color: #fff;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,.24);
-      border-bottom: 1px solid rgba(183,134,63,.36);
-    }
-
-    .hero-message strong {
-      display: block;
-      font-size: 21px;
-      line-height: 1.38;
-      letter-spacing: .03em;
-      font-weight: 950;
-    }
-
-    .hero-message span {
-      display: block;
-      margin-top: 6px;
-      color: #ffe8bd;
-      font-size: 17px;
-      line-height: 1.55;
-      font-weight: 900;
       letter-spacing: .02em;
     }
-
-    .speaker-card {
-      grid-template-columns: 132px minmax(0, 1fr);
-      gap: 16px;
-      padding: 16px;
-      align-items: center;
-    }
-
-    .speaker-photo {
-      min-height: 188px;
-      max-height: 212px;
-      padding: 8px;
-      background: linear-gradient(180deg, #fff5e8 0%, #f8fbff 100%);
-    }
-
-    .speaker-photo img {
+    .req { color: var(--red); margin-left: 4px; }
+    select, input[type="text"] {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center center;
+      min-height: 52px;
+      border-radius: 15px;
+      border: 1px solid rgba(8,35,74,.18);
+      background: #fff;
+      color: var(--ink);
+      padding: 0 15px;
+      outline: none;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
+    select:focus, input[type="text"]:focus {
+      border-color: rgba(0,75,147,.48);
+      box-shadow: 0 0 0 4px rgba(0,75,147,.08);
+    }
+    .auto-session {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(8,35,74,.13);
+      background: #fff;
+    }
+    .auto-session.empty {
+      padding: 16px;
+      color: #8a94a3;
+      border-style: dashed;
+      background: #f8fafc;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+    .auto-head {
+      padding: 14px 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy-900), var(--kgi-blue));
+      font-size: 17px;
+      font-weight: 950;
+      line-height: 1.5;
+    }
+    .auto-body { padding: 15px 16px; display: grid; gap: 12px; }
+    .auto-event + .auto-event { padding-top: 12px; border-top: 1px solid rgba(8,35,74,.10); }
+    .auto-date { color: #a97835; font-size: 18px; font-weight: 950; }
+    .auto-name { margin-top: 4px; color: var(--navy-900); font-size: 16px; font-weight: 950; line-height: 1.5; }
+    .auto-topic { margin-top: 4px; color: var(--muted); font-size: 14px; line-height: 1.6; font-weight: 700; }
 
-    .speaker-role {
-      color: var(--deep-blue);
-      font-size: 22px;
+    .attend-options { display: grid; gap: 12px; }
+    .radio-card {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      align-items: start;
+      border-radius: 18px;
+      border: 1px solid rgba(8,35,74,.14);
+      background: #fff;
+      padding: 15px;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .radio-card:hover { transform: translateY(-1px); border-color: rgba(201,155,85,.45); box-shadow: 0 12px 24px rgba(16,41,76,.08); }
+    .radio-card input[type="radio"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--navy-900);
+    }
+    .radio-card.primary {
+      padding: 18px;
+      border: 2px solid rgba(201,155,85,.55);
+      background: linear-gradient(180deg, #fffaf5, #fff1df);
+    }
+    .radio-title {
+      display: block;
+      color: var(--navy-900);
+      font-size: 20px;
       line-height: 1.35;
       font-weight: 950;
-      letter-spacing: .01em;
-      margin: 0 0 5px;
     }
-
-    .speaker-name {
-      font-size: 22px;
-      line-height: 1.2;
-      color: #24364f;
-      font-weight: 950;
-    }
-
-    .course-title {
-      margin-top: 8px;
-      font-size: 15px;
-    }
-
-    .speaker-highlight {
-      border-left: 0;
-      background: #fffaf2;
-      border: 1px solid rgba(0, 59, 113, .08);
-      color: #334155;
-      font-size: 14.5px;
-      line-height: 1.68;
-      font-weight: 760;
-    }
-
-    .section-title {
-      font-size: 31px;
-      line-height: 1.22;
-    }
-
-    .major .radio-note strong {
+    .radio-desc {
       display: block;
       margin-top: 6px;
-      color: var(--deep-blue);
+      color: #8a4e16;
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 800;
+    }
+    .radio-card.secondary .radio-title { color: #505d70; font-size: 16px; }
+    .other-input {
+      margin-top: 10px;
+      display: none;
+    }
+    .radio-card:has(input[value="其他需求"]:checked) .other-input { display: block; }
+    .message {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 16px;
+      line-height: 1.75;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: pre-line;
+    }
+    .message.show { display: block; }
+    .message.ok { background: #eaf7ef; color: #155c2c; border: 1px solid #b7e2c4; }
+    .message.err { background: #fff0f2; color: #9d2330; border: 1px solid #f1b7c1; }
+    .form-actions { display: grid; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      border: 0;
+      border-radius: 999px;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0 22px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--navy-900), var(--kgi-blue));
+      box-shadow: 0 12px 24px rgba(0,75,147,.20);
+      font-size: 16px;
       font-weight: 950;
+      font-family: inherit;
+      letter-spacing: .06em;
     }
+    .form-note { color: var(--muted); font-size: 13px; line-height: 1.6; font-weight: 700; }
 
-    @media (max-width: 520px) {
-      .hero-message { padding: 17px 18px 19px; }
-      .hero-message strong { font-size: 20px; }
-      .hero-message span { font-size: 16px; }
-      .speaker-card {
-        grid-template-columns: 128px minmax(0, 1fr);
-        gap: 14px;
-        padding: 14px;
-      }
-      .speaker-photo {
-        min-height: 182px;
-        max-height: 206px;
-      }
-      .speaker-role { font-size: 21px; }
-      .speaker-name { font-size: 21px; }
-      .speaker-highlight { font-size: 14px; line-height: 1.62; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(4, 11, 22, .68);
+      backdrop-filter: blur(10px);
     }
-
-    @media (max-width: 390px) {
-      .speaker-card { grid-template-columns: 118px minmax(0, 1fr); }
-      .speaker-photo { min-height: 172px; max-height: 196px; }
-      .speaker-role { font-size: 19px; }
-      .speaker-name { font-size: 20px; }
+    .modal.show { display: flex; }
+    .modal-panel {
+      width: min(560px, 100%);
+      overflow: hidden;
+      border-radius: 26px;
+      background: #fffaf5;
+      box-shadow: 0 26px 80px rgba(0,0,0,.34);
+      border: 1px solid rgba(255,255,255,.72);
     }
+    .modal-head { padding: 22px 24px; color: #fff; background: linear-gradient(135deg, var(--navy-900), var(--kgi-blue)); }
+    .modal-head h3 { margin: 0; font-size: 23px; font-weight: 950; letter-spacing: .06em; }
+    .modal-body { padding: 22px 24px 24px; }
+    .summary-list { display: grid; gap: 10px; margin-bottom: 18px; }
+    .summary-item { display: grid; grid-template-columns: 104px 1fr; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(8,35,74,.10); line-height: 1.65; }
+    .summary-item:last-child { border-bottom: 0; }
+    .summary-label { color: var(--muted); font-weight: 900; }
+    .summary-value { color: var(--navy-900); font-weight: 950; }
+    .modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-light { color: var(--navy-900); background: #eef3f8; box-shadow: none; }
+    .hidden-frame { width: 0; height: 0; border: 0; position: absolute; left: -9999px; }
 
+    footer { padding: 28px 0 42px; color: #788293; text-align: center; font-size: 13px; font-weight: 700; background: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .72s ease, transform .72s ease; }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal.delay-1 { transition-delay: .08s; }
+    .reveal.delay-2 { transition-delay: .16s; }
+    .reveal.delay-3 { transition-delay: .24s; }
+
+    @media (max-width: 900px) {
+      .schedule-grid, .reg-grid { grid-template-columns: 1fr; }
+      .speaker-panel-inner { grid-template-columns: 1fr; min-height: 0; }
+      .speaker-panel { min-height: 0; }
+      .speaker-figure { min-height: 315px; padding-top: 20px; }
+      .speaker-figure img { width: min(76%, 260px); max-height: 330px; }
+      .speaker-copy { padding: 0 24px 26px; }
+      .speaker-role { font-size: 22px; }
+      .speaker-name { font-size: 34px; }
+      .speaker-topic { font-size: 22px; }
+    }
+    @media (max-width: 560px) {
+      :root { --wrap: min(100vw - 26px, 1100px); }
+      .topbar-inner { min-height: 58px; }
+      .brand-logos img.logo-kgi { width: 88px; }
+      .brand-logos img.logo-bw { width: 102px; }
+      .brand-x { font-size: 18px; }
+      .top-cta { min-height: 36px; padding: 0 12px; font-size: 13px; }
+      .hero-visual img { min-height: 260px; object-fit: cover; object-position: center top; }
+      .brand-statement { padding-top: 14px; }
+      .statement-card { padding: 18px 14px; }
+      .section { padding: 44px 0; }
+      .section-title { font-size: 32px; }
+      .section-lead { font-size: 15px; }
+      .speaker-panel { border-radius: 24px; }
+      .speaker-figure { min-height: 300px; }
+      .speaker-figure img { width: min(84%, 255px); max-height: 315px; }
+      .speaker-copy { padding: 0 20px 22px; }
+      .speaker-role { font-size: 20px; }
+      .speaker-name { font-size: 32px; }
+      .speaker-topic { font-size: 20px; }
+      .speaker-points { font-size: 14px; line-height: 1.68; }
+      .schedule-card, .form-panel, .reg-intro { padding: 20px; border-radius: 24px; }
+      .schedule-event { grid-template-columns: 82px 1fr; gap: 10px; }
+      .date-block { font-size: 20px; }
+      .summary-item { grid-template-columns: 1fr; gap: 2px; }
+      .modal-actions { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="sticky-cta">
-      <div class="sticky-logos" aria-label="凱基人壽與商周CEO學院">
-        <img src="assets/logo-kgi-blue.png" alt="凱基人壽">
-        <span class="sticky-x">×</span>
-        <img src="assets/logo-bw-light.png" alt="商周CEO學院">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand-logos" aria-label="凱基人壽與商周CEO學院">
+        <img class="logo-kgi" src="assets/logo-kgi-blue.png" alt="凱基人壽">
+        <span class="brand-x">×</span>
+        <img class="logo-bw" src="assets/logo-bw-light.png" alt="商周CEO學院">
       </div>
-      <a class="quick-btn" href="#register">報名回覆</a>
-    </header>
+      <a class="top-cta" href="#registration">報名回覆</a>
+    </div>
+  </header>
 
-    <section class="hero" aria-label="K PLUS CEO講堂主視覺">
-      <img src="assets/hero-main.webp" alt="K PLUS CEO講堂 變局之中，帶隊前行 變革管理 X 逆境領導力">
-    </section>
+  <section class="hero-visual" id="top">
+    <img src="assets/hero-main.webp" alt="K PLUS CEO講堂主視覺：變局之中，帶隊前行">
+  </section>
 
-    <main>
-      <section class="hero-message" aria-label="聯名講堂說明">
+  <section class="brand-statement">
+    <div class="wrap">
+      <div class="statement-card reveal">
         <strong>凱基人壽攜手商周CEO學院</strong>
         <span>與跨界領導者同行，打開經營新視野</span>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="section" id="speakers">
-        <span class="tagline">講師陣容</span>
-        <h2 class="section-title">跨界經營視角<br>帶回領導啟發</h2>
-        <p class="section-lead">三位講師分別聚焦經營突破、溝通影響與教練式帶領。</p>
+  <main>
+    <section class="section speakers" id="speakers">
+      <div class="wrap">
+        <span class="tag reveal">講師陣容</span>
+        <h2 class="section-title reveal delay-1">跨界領導者<br>帶回經營啟發</h2>
+        <p class="section-lead reveal delay-2">三位講者分別從零售據點經營、品牌公關溝通與跨國企業教練式領導切入，帶出可轉化為團隊經營的管理觀點。</p>
 
-        <div class="speaker-list">
-          <article class="speaker-card chiou">
-            <div class="speaker-photo"><img src="assets/chiou-kuanglung.webp" alt="邱光隆照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">三商家購（美廉社）董事總經理</p>
-              <h3 class="speaker-name">邱光隆</h3>
-              <span class="course-title">逆境領導力</span>
-              <p class="speaker-highlight">從第一家門市到全台 800 多家據點，聚焦市場定位、據點複製與管理節奏，帶回組織成長瓶頸中的突破思路。</p>
+        <div class="speaker-stage">
+          <article class="speaker-panel reveal">
+            <div class="speaker-panel-inner">
+              <div class="speaker-figure"><img src="assets/chiou-kuanglung.webp" alt="邱光隆講師照片"></div>
+              <div class="speaker-copy">
+                <div class="speaker-role">三商家購（美廉社）<br>董事總經理</div>
+                <div class="speaker-name">邱光隆</div>
+                <div class="speaker-topic">逆境領導力</div>
+                <div class="gold-rule"></div>
+                <ul class="speaker-points">
+                  <li>從市場挑戰看定位建立與經營突破。</li>
+                  <li>由單點成功延伸至可複製的據點經營。</li>
+                  <li>以幹部養成與人才培育推動組織擴張。</li>
+                </ul>
+              </div>
             </div>
           </article>
 
-          <article class="speaker-card hsieh">
-            <div class="speaker-photo"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">前台灣奧美集團董事總經理</p>
-              <h3 class="speaker-name">謝馨慧</h3>
-              <span class="course-title">溝通影響力</span>
-              <p class="speaker-highlight">以品牌、公關與危機管理經驗切入，聚焦看懂人心、掌握溝通場域，帶回建立信任與影響力的方法。</p>
+          <article class="speaker-panel reveal delay-1">
+            <div class="speaker-panel-inner">
+              <div class="speaker-figure"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧講師照片"></div>
+              <div class="speaker-copy">
+                <div class="speaker-role">前台灣奧美集團<br>董事總經理</div>
+                <div class="speaker-name">謝馨慧</div>
+                <div class="speaker-topic">溝通影響力</div>
+                <div class="gold-rule"></div>
+                <ul class="speaker-points">
+                  <li>從品牌、公關與危機管理看高階溝通。</li>
+                  <li>掌握人心、局勢與不同世代溝通關鍵。</li>
+                  <li>建立信任與影響力，讓共識轉化為行動。</li>
+                </ul>
+              </div>
             </div>
           </article>
 
-          <article class="speaker-card chen">
-            <div class="speaker-photo"><img src="assets/chen-flora.webp" alt="陳慧蓉照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">前台灣微軟首席營運長</p>
-              <h3 class="speaker-name">陳慧蓉</h3>
-              <span class="course-title">教練引導力</span>
-              <p class="speaker-highlight">以跨國企業高階管理與教練經驗切入，聚焦信任建立、潛能激發與高成長團隊，帶回壓力下的教練式帶領。</p>
+          <article class="speaker-panel reveal delay-2">
+            <div class="speaker-panel-inner">
+              <div class="speaker-figure"><img src="assets/chen-flora.webp" alt="陳慧蓉講師照片"></div>
+              <div class="speaker-copy">
+                <div class="speaker-role">前台灣微軟<br>首席營運長</div>
+                <div class="speaker-name">陳慧蓉</div>
+                <div class="speaker-topic">教練引導力</div>
+                <div class="gold-rule"></div>
+                <ul class="speaker-points">
+                  <li>從跨國企業管理看高目標團隊帶領。</li>
+                  <li>以教練式引導建立信任、激發潛能。</li>
+                  <li>運用成長心態與協作文化推動團隊進化。</li>
+                </ul>
+              </div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section blue-wash" id="outline">
-        <span class="tagline">授課大綱</span>
-        <h2 class="section-title">三大領導力主題<br>對應經營現場</h2>
-        <p class="section-lead">聚焦經營、帶人、溝通與組織發展，帶回可運用的管理思維。</p>
-
-        <div class="outline-list">
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜逆境領導力</span>
-              <h3>邱光隆</h3>
-              <p>三商家購（美廉社）董事總經理</p>
+    <section class="section syllabus" id="syllabus">
+      <div class="wrap">
+        <span class="tag reveal">授課大綱</span>
+        <h2 class="section-title reveal delay-1">三大領導力主題<br>對應經營現場</h2>
+        <div class="outline-grid">
+          <article class="outline-card reveal">
+            <div class="outline-head">
+              <div class="subject">逆境領導力</div>
+              <div class="teacher">邱光隆｜三商家購（美廉社）董事總經理</div>
             </div>
-            <ul class="outline-body">
-              <li>從市場挑戰到經營突破：美廉社如何建立定位並帶動成長。</li>
-              <li>從單點成功到據點複製：如何打造可複製的經營模式與管理節奏。</li>
-              <li>從帶人到培育組織：人才培育、幹部養成與團隊擴張的關鍵思維。</li>
-              <li>給創業者經營提醒：當團隊面臨瓶頸時，領導者如何重新帶動成長。</li>
+            <ul class="outline-list">
+              <li>從市場挑戰到經營突破：美廉社如何建立定位並帶動成長</li>
+              <li>從單點成功到據點複製：如何打造可複製的經營模式與管理節奏</li>
+              <li>從帶人到培育組織：人才培育、幹部養成與團隊擴張的關鍵思維</li>
+              <li>給創業者經營提醒：當團隊面臨瓶頸時，領導者如何重新帶動成長</li>
             </ul>
           </article>
-
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜溝通影響力</span>
-              <h3>謝馨慧</h3>
-              <p>前台灣奧美集團董事總經理</p>
+          <article class="outline-card reveal delay-1">
+            <div class="outline-head">
+              <div class="subject">溝通影響力</div>
+              <div class="teacher">謝馨慧｜前台灣奧美集團董事總經理</div>
             </div>
-            <ul class="outline-body">
-              <li>洞察人心與看懂局勢：掌握新世代心理與團隊溝通關鍵。</li>
-              <li>自我定調與領導場域建立：從溝通風格、價值觀與能量管理，形塑讓部屬願意追隨的經營者形象。</li>
-              <li>精準影響與信任賦能：提升團隊信任、主管影響力與組織規模化動能。</li>
-              <li>經營者私房筆記：透過領導力自省與行動承諾，將人心洞察轉化為日常經營習慣。</li>
+            <ul class="outline-list">
+              <li>洞察人心與看懂局勢：掌握新世代心理與團隊溝通關鍵</li>
+              <li>自我定調與領導場域建立：形塑讓部屬願意追隨的經營者形象</li>
+              <li>精準影響與信任賦能：提升團隊信任、主管影響力與組織規模化動能</li>
+              <li>經營者私房筆記：將人心洞察轉化為日常經營習慣</li>
             </ul>
           </article>
-
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜教練引導力</span>
-              <h3>陳慧蓉</h3>
-              <p>前台灣微軟首席營運長</p>
+          <article class="outline-card reveal delay-2">
+            <div class="outline-head">
+              <div class="subject">教練引導力</div>
+              <div class="teacher">陳慧蓉｜前台灣微軟首席營運長</div>
             </div>
-            <ul class="outline-body">
-              <li>從管理績效到成就他人：主管如何將目標轉化為團隊前進動能。</li>
-              <li>教練式領導與信任建立：在壓力中建立團隊信任、賦能與成長。</li>
-              <li>成長心態與協作文化：從微軟經驗看高成長團隊如何持續進化。</li>
-              <li>AI 時代的領導提醒：面對快速變化，主管如何保有學習力與組織彈性。</li>
+            <ul class="outline-list">
+              <li>從管理績效到成就他人：主管如何將目標轉化為團隊前進動能</li>
+              <li>教練式領導與信任建立：在壓力中建立團隊信任、賦能與成長</li>
+              <li>成長心態與協作文化：從微軟經驗看高成長團隊如何持續進化</li>
+              <li>AI 時代的領導提醒：主管如何保有學習力與組織彈性</li>
             </ul>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section tint" id="sessions">
-        <span class="tagline">場次資訊</span>
-        <h2 class="section-title">台北場／高雄場</h2>
-        <p class="section-lead">請依所屬地區完成報名回覆。北一、北二、桃竹為台北場；中嘉、台南、高屏為高雄場。</p>
-
-        <div class="venue-list">
-          <article class="venue-card">
-            <div class="venue-title">
-              <h3>台北場（與會學員：北一、北二、桃竹處經理）</h3>
+    <section class="section schedule-section" id="schedule">
+      <div class="wrap">
+        <span class="tag reveal">場次資訊</span>
+        <h2 class="section-title reveal delay-1">台北場／高雄場</h2>
+        <p class="section-lead reveal delay-2">請依所屬地區完成報名回覆。北一、北二、桃竹為台北場；中嘉、台南、高屏為高雄場。</p>
+        <div class="schedule-grid">
+          <article class="schedule-card reveal">
+            <h3 class="schedule-title">台北場<small>與會學員：北一、北二、桃竹處經理</small></h3>
+            <div class="schedule-event">
+              <div class="date-block">8/5（三）<span>下午</span></div>
+              <div class="event-info"><strong>邱光隆｜逆境領導力</strong><p>三商家購（美廉社）董事總經理｜台北金控大樓18樓</p></div>
             </div>
-            <div class="session-row">
-              <div class="date-block">
-                <span class="date">08/05</span>
-                <span class="time-pill">下午</span>
-              </div>
-              <div class="session-info">
-                <h4>邱光隆 <em>逆境領導力</em></h4>
-                <p>三商家購（美廉社）董事總經理｜台北金控大樓18樓</p>
-              </div>
-            </div>
-            <div class="session-row">
-              <div class="date-block">
-                <span class="date">11/10</span>
-                <span class="time-pill">下午</span>
-              </div>
-              <div class="session-info">
-                <h4>陳慧蓉 <em>教練引導力</em></h4>
-                <p>前台灣微軟首席營運長｜台北金控大樓18樓</p>
-              </div>
+            <div class="schedule-event">
+              <div class="date-block">11/10（二）<span>下午</span></div>
+              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟首席營運長｜台北金控大樓18樓</p></div>
             </div>
           </article>
-
-          <article class="venue-card">
-            <div class="venue-title">
-              <h3>高雄場（參與學員：中嘉、台南、高屏處經理）</h3>
+          <article class="schedule-card reveal delay-1">
+            <h3 class="schedule-title">高雄場<small>參與學員：中嘉、台南、高屏處經理</small></h3>
+            <div class="schedule-event">
+              <div class="date-block">8/11（二）<span>下午</span></div>
+              <div class="event-info"><strong>謝馨慧｜溝通影響力</strong><p>前台灣奧美集團董事總經理｜高雄明誠大樓12樓</p></div>
             </div>
-            <div class="session-row">
-              <div class="date-block">
-                <span class="date">08/11</span>
-                <span class="time-pill">下午</span>
-              </div>
-              <div class="session-info">
-                <h4>謝馨慧 <em>溝通影響力</em></h4>
-                <p>前台灣奧美集團董事總經理｜高雄明誠大樓12樓</p>
-              </div>
-            </div>
-            <div class="session-row">
-              <div class="date-block">
-                <span class="date">11/11</span>
-                <span class="time-pill">下午</span>
-              </div>
-              <div class="session-info">
-                <h4>陳慧蓉 <em>教練引導力</em></h4>
-                <p>前台灣微軟首席營運長｜高雄明誠大樓12樓</p>
-              </div>
+            <div class="schedule-event">
+              <div class="date-block">11/11（三）<span>下午</span></div>
+              <div class="event-info"><strong>陳慧蓉｜教練引導力</strong><p>前台灣微軟首席營運長｜高雄明誠大樓12樓</p></div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section form-section" id="register">
-        <span class="tagline">報名回覆</span>
-        <h2 class="section-title">請完成出席回覆</h2>
-        <p class="section-lead">請先選擇所屬地區，系統會自動帶入對應場次。送出前會再次顯示確認內容，確認後才會寫入後台報名資料。</p>
-
-        <div class="form-panel">
-          <form id="registrationForm" novalidate>
-            <div class="field">
-              <label class="field-label" for="region">所屬地區<span class="required">*</span></label>
-              <select id="region" name="region" required>
-                <option value="">請選擇地區</option>
-                <option value="北一">北一</option>
-                <option value="北二">北二</option>
-                <option value="桃竹">桃竹</option>
-                <option value="中嘉">中嘉</option>
-                <option value="台南">台南</option>
-                <option value="高屏">高屏</option>
-              </select>
+    <section class="section registration" id="registration">
+      <div class="wrap">
+        <span class="tag reveal">報名回覆</span>
+        <h2 class="section-title reveal delay-1">請完成出席回覆</h2>
+        <div class="reg-grid">
+          <aside class="reg-intro reveal">
+            <div class="reg-logos">
+              <img class="kgi" src="assets/logo-kgi-blue.png" alt="凱基人壽">
+              <span>×</span>
+              <img class="bw" src="assets/logo-bw-light.png" alt="商周CEO學院">
             </div>
-
-            <div id="autoSession" class="auto-session" aria-live="polite"></div>
-
-            <div class="field">
-              <label class="field-label" for="officeName">通訊處名稱<span class="required">*</span></label>
-              <input id="officeName" name="officeName" type="text" placeholder="請輸入通訊處名稱" required>
-            </div>
-
-            <div class="field">
-              <label class="field-label" for="personName">姓名<span class="required">*</span></label>
-              <input id="personName" name="personName" type="text" placeholder="請輸入姓名" required>
-            </div>
-
-            <div class="field">
-              <label class="field-label">出席回覆<span class="required">*</span></label>
-              <div class="attendance-group">
-                <label class="radio-card major">
-                  <input type="radio" name="attendance" value="以上日期確定出席">
-                  <span>
-                    <span class="radio-title">以上日期確定出席</span>
-                    <span class="radio-note">請確認可出席所屬場次日期後再送出，以利主辦單位安排名額、場地與課程資源；請珍惜公司培訓資源。<strong>報名完成後將另行提供課前講堂問卷，屆時再請協助填寫。</strong></span>
-                  </span>
-                </label>
-
-                <label class="radio-card">
-                  <input type="radio" name="attendance" value="不克出席">
-                  <span>
-                    <span class="radio-title">不克出席</span>
-                    <span class="radio-note">若無法參與所屬場次，請選擇此項。</span>
-                  </span>
-                </label>
-
-                <label class="radio-card" id="otherNeedsCard">
-                  <input type="radio" name="attendance" value="其他需求">
-                  <span>
-                    <span class="radio-title">我有其他出席安排或協助需求，請主辦單位與我聯繫</span>
-                    <span class="radio-note">例如：場次安排、出席協調或其他需主辦單位協助確認事項。</span>
-                  </span>
-                  <div class="other-needs-wrap" id="otherNeedsWrap">
-                    <textarea id="otherNeeds" name="otherNeeds" placeholder="請簡要說明需求"></textarea>
-                  </div>
-                </label>
+            <h3>K PLUS CEO講堂</h3>
+            <p>請先選擇所屬地區，系統會自動帶入對應場次。送出前會再次跳出確認視窗，確認後才會寫入後台報名資料。</p>
+          </aside>
+          <section class="form-panel reveal delay-1" aria-label="報名表單">
+            <form id="registrationForm">
+              <div class="field">
+                <label for="region">先選擇地區<span class="req">*</span></label>
+                <select id="region" name="region" required>
+                  <option value="">請選擇所屬地區</option>
+                  <option value="北一">北一</option>
+                  <option value="北二">北二</option>
+                  <option value="桃竹">桃竹</option>
+                  <option value="中嘉">中嘉</option>
+                  <option value="台南">台南</option>
+                  <option value="高屏">高屏</option>
+                </select>
               </div>
-            </div>
-
-            <div class="error-text" id="formError"></div>
-            <button class="submit-btn" type="submit" id="submitBtn">送出</button>
-            <div class="success-box" id="successBox"></div>
-          </form>
+              <div class="field">
+                <label>地區與場次</label>
+                <div id="sessionBox" class="auto-session empty">請先選擇地區，系統將自動帶入台北場或高雄場。</div>
+              </div>
+              <div class="field">
+                <label for="office">通訊處名稱<span class="req">*</span></label>
+                <input id="office" name="office" type="text" placeholder="請輸入通訊處名稱" required>
+              </div>
+              <div class="field">
+                <label for="name">姓名<span class="req">*</span></label>
+                <input id="name" name="name" type="text" placeholder="請輸入處經理姓名" required>
+              </div>
+              <div class="field">
+                <label>出席回覆<span class="req">*</span></label>
+                <div class="attend-options">
+                  <label class="radio-card primary">
+                    <input type="radio" name="attendance" value="以上日期確定出席" required>
+                    <span>
+                      <span class="radio-title">以上日期確定出席</span>
+                      <span class="radio-desc">本講堂為公司投入之培訓資源，請珍惜名額並於送出前確認兩場日期皆可出席；報名完成後將另行提供課前講堂問卷，屆時再請協助填寫。</span>
+                    </span>
+                  </label>
+                  <label class="radio-card secondary">
+                    <input type="radio" name="attendance" value="不克出席" required>
+                    <span>
+                      <span class="radio-title">不克出席</span>
+                      <span class="radio-desc">若目前無法配合以上日期，仍請送出回覆以利名單統計。</span>
+                    </span>
+                  </label>
+                  <label class="radio-card secondary">
+                    <input type="radio" name="attendance" value="其他需求" required>
+                    <span>
+                      <span class="radio-title">我有其他出席安排或協助需求，請主辦單位與我聯繫</span>
+                      <span class="radio-desc">請於下方簡述需求，主辦單位將再與您確認。</span>
+                      <input id="otherNeed" class="other-input" type="text" placeholder="請簡述需求">
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div id="message" class="message" aria-live="polite"></div>
+              <div class="form-actions">
+                <button class="btn" type="submit">送出</button>
+                <div class="form-note">按下送出後，會先跳出資料確認視窗。</div>
+              </div>
+            </form>
+          </section>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer class="footer">
-      K PLUS CEO講堂｜凱基人壽 × 商周CEO學院<br>
-      報名資料將於確認送出後寫入後台紀錄。
-    </footer>
-  </div>
+  <footer>K PLUS CEO講堂｜凱基人壽 × 商周CEO學院｜年度處經理限定講堂</footer>
 
-  <div class="modal-backdrop" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
-    <div class="modal">
-      <h2 id="confirmTitle">請確認送出資料</h2>
-      <p>請再次確認以下資料是否正確，確認後才會寫入後台報名資料。</p>
-      <div class="confirm-list" id="confirmList"></div>
-      <div class="modal-actions">
-        <button class="edit-btn" type="button" id="editBtn">返回修改</button>
-        <button class="confirm-btn" type="button" id="confirmBtn">確認送出</button>
+  <div id="confirmModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div class="modal-head"><h3 id="modalTitle">請確認報名資料</h3></div>
+      <div class="modal-body">
+        <div id="summaryList" class="summary-list"></div>
+        <div class="modal-actions">
+          <button id="editBtn" class="btn btn-light" type="button">返回修改</button>
+          <button id="confirmBtn" class="btn" type="button">確認送出</button>
+        </div>
       </div>
     </div>
   </div>
+  <iframe id="submitFrame" name="submitFrame" class="hidden-frame" title="submit target"></iframe>
 
   <script>
-    // 完成 Google Apps Script 部署後，將網址貼在下面引號內。
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOT3a_NGekgtCdrkkfBH5wLbIxXcs7UYpVwoKG0-dTomSmtLiGR22SE8gG7Hs1DlAV/exec";
+
+    const groups = {
+      taipei: ["北一", "北二", "桃竹"],
+      kaohsiung: ["中嘉", "台南", "高屏"]
+    };
 
     const sessions = {
       taipei: {
-        name: "台北場",
-        audienceLabel: "與會學員：北一、北二、桃竹處經理",
-        details: [
-          "8/5（三）下午｜邱光隆｜逆境領導力｜台北金控大樓18樓",
-          "11/10（二）下午｜陳慧蓉｜教練引導力｜台北金控大樓18樓"
+        label: "台北場",
+        attendees: "北一、北二、桃竹處經理",
+        location: "台北金控大樓18樓",
+        events: [
+          { date: "8/5（三）下午", speaker: "邱光隆", role: "三商家購（美廉社）董事總經理", course: "逆境領導力" },
+          { date: "11/10（二）下午", speaker: "陳慧蓉", role: "前台灣微軟首席營運長", course: "教練引導力" }
         ]
       },
       kaohsiung: {
-        name: "高雄場",
-        audienceLabel: "參與學員：中嘉、台南、高屏處經理",
-        details: [
-          "8/11（二）下午｜謝馨慧｜溝通影響力｜高雄明誠大樓12樓",
-          "11/11（三）下午｜陳慧蓉｜教練引導力｜高雄明誠大樓12樓"
+        label: "高雄場",
+        attendees: "中嘉、台南、高屏處經理",
+        location: "高雄明誠大樓12樓",
+        events: [
+          { date: "8/11（二）下午", speaker: "謝馨慧", role: "前台灣奧美集團董事總經理", course: "溝通影響力" },
+          { date: "11/11（三）下午", speaker: "陳慧蓉", role: "前台灣微軟首席營運長", course: "教練引導力" }
         ]
       }
     };
 
-    const regionMap = {
-      "北一": "taipei",
-      "北二": "taipei",
-      "桃竹": "taipei",
-      "中嘉": "kaohsiung",
-      "台南": "kaohsiung",
-      "高屏": "kaohsiung"
-    };
-
     const form = document.getElementById("registrationForm");
-    const region = document.getElementById("region");
-    const autoSession = document.getElementById("autoSession");
-    const formError = document.getElementById("formError");
-    const successBox = document.getElementById("successBox");
-    const confirmModal = document.getElementById("confirmModal");
-    const confirmList = document.getElementById("confirmList");
+    const regionEl = document.getElementById("region");
+    const sessionBox = document.getElementById("sessionBox");
+    const message = document.getElementById("message");
+    const modal = document.getElementById("confirmModal");
+    const summaryList = document.getElementById("summaryList");
     const editBtn = document.getElementById("editBtn");
     const confirmBtn = document.getElementById("confirmBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const otherNeedsWrap = document.getElementById("otherNeedsWrap");
-    const otherNeeds = document.getElementById("otherNeeds");
+    const otherNeed = document.getElementById("otherNeed");
     let pendingPayload = null;
 
-    function getSelectedSession() {
-      const key = regionMap[region.value];
-      return key ? sessions[key] : null;
+    function getGroup(region) {
+      if (groups.taipei.includes(region)) return "taipei";
+      if (groups.kaohsiung.includes(region)) return "kaohsiung";
+      return "";
     }
-
-    function updateSessionDisplay() {
-      const selected = getSelectedSession();
-      if (!selected) {
-        autoSession.classList.remove("active");
-        autoSession.innerHTML = "";
+    function getSessionDetail(session) {
+      if (!session) return "";
+      const eventText = session.events.map(e => `${e.date} ${e.speaker}｜${e.role}｜${e.course}`).join("；");
+      return `${session.label}｜${eventText}｜地點：${session.location}｜與會學員：${session.attendees}`;
+    }
+    function renderSession() {
+      const group = getGroup(regionEl.value);
+      if (!group) {
+        sessionBox.className = "auto-session empty";
+        sessionBox.innerHTML = "請先選擇地區，系統將自動帶入台北場或高雄場。";
         return;
       }
-
-      autoSession.classList.add("active");
-      autoSession.innerHTML = `
-        <h3>${selected.name}<span class="audience">${selected.audienceLabel}</span></h3>
-        <ul>${selected.details.map(item => `<li>${item}</li>`).join("")}</ul>
-      `;
+      const s = sessions[group];
+      sessionBox.className = "auto-session";
+      sessionBox.innerHTML = `
+        <div class="auto-head">${s.label}｜${s.location}</div>
+        <div class="auto-body">
+          ${s.events.map(e => `
+            <div class="auto-event">
+              <div class="auto-date">${e.date}</div>
+              <div class="auto-name">${e.speaker}｜${e.role}</div>
+              <div class="auto-topic">課程名稱：${e.course}</div>
+            </div>`).join("")}
+          <div class="auto-event"><div class="auto-topic"><strong>與會學員：</strong>${s.attendees}</div></div>
+        </div>`;
     }
-
+    function showMessage(type, text) {
+      message.className = `message show ${type}`;
+      message.textContent = text;
+    }
+    function clearMessage() {
+      message.className = "message";
+      message.textContent = "";
+    }
     function getAttendanceValue() {
-      const checked = document.querySelector('input[name="attendance"]:checked');
+      const checked = form.querySelector('input[name="attendance"]:checked');
       return checked ? checked.value : "";
     }
-
-    function updateOtherNeeds() {
-      const isOther = getAttendanceValue() === "其他需求";
-      otherNeedsWrap.classList.toggle("active", isOther);
-      if (!isOther) otherNeeds.value = "";
-    }
-
-    function showError(message) {
-      formError.textContent = message;
-      formError.classList.add("show");
-    }
-
-    function clearError() {
-      formError.textContent = "";
-      formError.classList.remove("show");
-      successBox.classList.remove("show");
-      successBox.textContent = "";
-    }
-
-    function validateAndBuildPayload() {
-      clearError();
-      const selectedSession = getSelectedSession();
-      const officeName = document.getElementById("officeName").value.trim();
-      const personName = document.getElementById("personName").value.trim();
+    function buildPayload() {
+      const region = regionEl.value;
+      const group = getGroup(region);
+      const session = sessions[group];
+      const office = document.getElementById("office").value.trim();
+      const name = document.getElementById("name").value.trim();
       const attendance = getAttendanceValue();
-      const otherText = otherNeeds.value.trim();
-
-      if (!region.value || !selectedSession) return { error: "請先選擇所屬地區。" };
-      if (!officeName) return { error: "請填寫通訊處名稱。" };
-      if (!personName) return { error: "請填寫姓名。" };
-      if (!attendance) return { error: "請選擇出席回覆。" };
-      if (attendance === "其他需求" && !otherText) return { error: "請簡要填寫其他出席安排或協助需求。" };
-
-      const attendanceLabel = attendance === "其他需求" ? "其他出席安排或協助需求" : attendance;
+      const otherNeedText = otherNeed.value.trim();
+      if (!region || !group || !office || !name || !attendance) return null;
+      if (attendance === "其他需求" && !otherNeedText) {
+        showMessage("err", "請於其他需求欄位簡述需求，或改選其他出席回覆。");
+        return false;
+      }
       return {
-        payload: {
-          region: region.value,
-          sessionName: selectedSession.name,
-          audienceLabel: selectedSession.audienceLabel,
-          sessionDetails: selectedSession.details.join("；"),
-          officeName,
-          personName,
-          attendance: attendanceLabel,
-          otherNeeds: otherText
-        }
+        region,
+        sessionGroup: session.label,
+        sessionDetail: getSessionDetail(session),
+        attendees: session.attendees,
+        location: session.location,
+        office,
+        name,
+        attendance,
+        otherNeed: attendance === "其他需求" ? otherNeedText : "",
+        userAgent: navigator.userAgent
       };
     }
-
     function openConfirm(payload) {
-      pendingPayload = payload;
-      confirmList.innerHTML = `
-        <div class="confirm-row"><strong>通訊處名稱</strong><span>${payload.officeName}</span></div>
-        <div class="confirm-row"><strong>姓名</strong><span>${payload.personName}</span></div>
-        <div class="confirm-row"><strong>所屬地區</strong><span>${payload.region}</span></div>
-        <div class="confirm-row"><strong>對應場次</strong><span>${payload.sessionName}<br>${payload.audienceLabel}<br>${payload.sessionDetails}</span></div>
-        <div class="confirm-row"><strong>出席回覆</strong><span>${payload.attendance}</span></div>
-        ${payload.otherNeeds ? `<div class="confirm-row"><strong>其他需求</strong><span>${payload.otherNeeds}</span></div>` : ""}
+      summaryList.innerHTML = `
+        <div class="summary-item"><div class="summary-label">所屬地區</div><div class="summary-value">${payload.region}</div></div>
+        <div class="summary-item"><div class="summary-label">報名場次</div><div class="summary-value">${payload.sessionDetail}</div></div>
+        <div class="summary-item"><div class="summary-label">通訊處名稱</div><div class="summary-value">${payload.office}</div></div>
+        <div class="summary-item"><div class="summary-label">姓名</div><div class="summary-value">${payload.name}</div></div>
+        <div class="summary-item"><div class="summary-label">出席回覆</div><div class="summary-value">${payload.attendance}</div></div>
+        ${payload.otherNeed ? `<div class="summary-item"><div class="summary-label">其他需求</div><div class="summary-value">${payload.otherNeed}</div></div>` : ""}
       `;
-      confirmModal.classList.add("show");
-      document.body.style.overflow = "hidden";
+      modal.classList.add("show");
+    }
+    function closeConfirm() { modal.classList.remove("show"); }
+    function postByHiddenForm(payload) {
+      const tempForm = document.createElement("form");
+      tempForm.method = "POST";
+      tempForm.action = SCRIPT_URL;
+      tempForm.target = "submitFrame";
+      tempForm.style.display = "none";
+      Object.keys(payload).forEach(key => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = payload[key];
+        tempForm.appendChild(input);
+      });
+      document.body.appendChild(tempForm);
+      tempForm.submit();
+      tempForm.remove();
     }
 
-    function closeConfirm() {
-      confirmModal.classList.remove("show");
-      document.body.style.overflow = "";
-    }
-
-    async function sendPayload() {
-      if (!pendingPayload) return;
-      confirmBtn.disabled = true;
-      submitBtn.disabled = true;
-      confirmBtn.textContent = "送出中...";
-
-      if (!SCRIPT_URL || SCRIPT_URL.includes("請貼上")) {
-        closeConfirm();
-        successBox.textContent = "前台測試完成：目前尚未貼上 Google Apps Script Web App URL，所以資料還不會寫入後台。貼上網址後即可正式收資料。";
-        successBox.classList.add("show");
-        confirmBtn.disabled = false;
-        submitBtn.disabled = false;
-        confirmBtn.textContent = "確認送出";
-        return;
-      }
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(pendingPayload)
-        });
-
-        closeConfirm();
-        successBox.textContent = "報名回覆已送出，謝謝您。";
-        successBox.classList.add("show");
-        form.reset();
-        updateSessionDisplay();
-        updateOtherNeeds();
-      } catch (error) {
-        closeConfirm();
-        showError("資料送出失敗，請稍後再試，或聯繫主辦單位協助確認。" + (error.message ? "（" + error.message + "）" : ""));
-      } finally {
-        pendingPayload = null;
-        confirmBtn.disabled = false;
-        submitBtn.disabled = false;
-        confirmBtn.textContent = "確認送出";
-      }
-    }
-
-    region.addEventListener("change", updateSessionDisplay);
-    document.querySelectorAll('input[name="attendance"]').forEach(input => {
-      input.addEventListener("change", updateOtherNeeds);
+    regionEl.addEventListener("change", renderSession);
+    form.addEventListener("change", () => {
+      const attendance = getAttendanceValue();
+      if (attendance !== "其他需求") otherNeed.value = "";
     });
-
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const result = validateAndBuildPayload();
-      if (result.error) {
-        showError(result.error);
+      clearMessage();
+      const payload = buildPayload();
+      if (payload === false) return;
+      if (!payload) {
+        showMessage("err", "請完整填寫必填欄位，並選擇出席回覆。");
         return;
       }
-      openConfirm(result.payload);
+      pendingPayload = payload;
+      openConfirm(payload);
     });
-
     editBtn.addEventListener("click", closeConfirm);
-    confirmBtn.addEventListener("click", sendPayload);
-    confirmModal.addEventListener("click", (event) => {
-      if (event.target === confirmModal) closeConfirm();
+    confirmBtn.addEventListener("click", () => {
+      if (!pendingPayload) return;
+      closeConfirm();
+      postByHiddenForm(pendingPayload);
+      showMessage("ok", "已送出報名回覆，資料將寫入後台報名表。謝謝！");
+      form.reset();
+      renderSession();
+      pendingPayload = null;
     });
+    modal.addEventListener("click", event => { if (event.target === modal) closeConfirm(); });
+    renderSession();
+
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    revealEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
