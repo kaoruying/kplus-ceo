@@ -772,6 +772,126 @@
       .speaker-highlight { font-size: 13.2px; }
     }
 
+  
+
+    /* v8：區塊順序與手機視覺優化 */
+    .hero-message {
+      padding: 18px 18px 20px;
+      background:
+        linear-gradient(135deg, rgba(0, 80, 159, .98) 0%, rgba(0, 59, 113, .98) 100%);
+      color: #fff;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.24);
+      border-bottom: 1px solid rgba(183,134,63,.36);
+    }
+
+    .hero-message strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.38;
+      letter-spacing: .03em;
+      font-weight: 950;
+    }
+
+    .hero-message span {
+      display: block;
+      margin-top: 6px;
+      color: #ffe8bd;
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .speaker-card {
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: 16px;
+      padding: 16px;
+      align-items: center;
+    }
+
+    .speaker-photo {
+      min-height: 188px;
+      max-height: 212px;
+      padding: 8px;
+      background: linear-gradient(180deg, #fff5e8 0%, #f8fbff 100%);
+    }
+
+    .speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .speaker-role {
+      color: var(--deep-blue);
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 950;
+      letter-spacing: .01em;
+      margin: 0 0 5px;
+    }
+
+    .speaker-name {
+      font-size: 22px;
+      line-height: 1.2;
+      color: #24364f;
+      font-weight: 950;
+    }
+
+    .course-title {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .speaker-highlight {
+      border-left: 0;
+      background: #fffaf2;
+      border: 1px solid rgba(0, 59, 113, .08);
+      color: #334155;
+      font-size: 14.5px;
+      line-height: 1.68;
+      font-weight: 760;
+    }
+
+    .section-title {
+      font-size: 31px;
+      line-height: 1.22;
+    }
+
+    .major .radio-note strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--deep-blue);
+      font-weight: 950;
+    }
+
+    @media (max-width: 520px) {
+      .hero-message { padding: 17px 18px 19px; }
+      .hero-message strong { font-size: 20px; }
+      .hero-message span { font-size: 16px; }
+      .speaker-card {
+        grid-template-columns: 128px minmax(0, 1fr);
+        gap: 14px;
+        padding: 14px;
+      }
+      .speaker-photo {
+        min-height: 182px;
+        max-height: 206px;
+      }
+      .speaker-role { font-size: 21px; }
+      .speaker-name { font-size: 21px; }
+      .speaker-highlight { font-size: 14px; line-height: 1.62; }
+    }
+
+    @media (max-width: 390px) {
+      .speaker-card { grid-template-columns: 118px minmax(0, 1fr); }
+      .speaker-photo { min-height: 172px; max-height: 196px; }
+      .speaker-role { font-size: 19px; }
+      .speaker-name { font-size: 20px; }
+    }
+
   </style>
 </head>
 <body>
@@ -790,9 +910,102 @@
     </section>
 
     <main>
+      <section class="hero-message" aria-label="聯名講堂說明">
+        <strong>凱基人壽攜手商周CEO學院</strong>
+        <span>與跨界領導者同行，打開經營新視野</span>
+      </section>
+
+      <section class="section" id="speakers">
+        <span class="tagline">講師陣容</span>
+        <h2 class="section-title">跨界經營視角<br>帶回領導啟發</h2>
+        <p class="section-lead">三位講師分別聚焦經營突破、溝通影響與教練式帶領。</p>
+
+        <div class="speaker-list">
+          <article class="speaker-card chiou">
+            <div class="speaker-photo"><img src="assets/chiou-kuanglung.webp" alt="邱光隆照片"></div>
+            <div class="speaker-info">
+              <p class="speaker-role">三商家購（美廉社）董事總經理</p>
+              <h3 class="speaker-name">邱光隆</h3>
+              <span class="course-title">逆境領導力</span>
+              <p class="speaker-highlight">從第一家門市到全台 800 多家據點，聚焦市場定位、據點複製與管理節奏，帶回組織成長瓶頸中的突破思路。</p>
+            </div>
+          </article>
+
+          <article class="speaker-card hsieh">
+            <div class="speaker-photo"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧照片"></div>
+            <div class="speaker-info">
+              <p class="speaker-role">前台灣奧美集團董事總經理</p>
+              <h3 class="speaker-name">謝馨慧</h3>
+              <span class="course-title">溝通影響力</span>
+              <p class="speaker-highlight">以品牌、公關與危機管理經驗切入，聚焦看懂人心、掌握溝通場域，帶回建立信任與影響力的方法。</p>
+            </div>
+          </article>
+
+          <article class="speaker-card chen">
+            <div class="speaker-photo"><img src="assets/chen-flora.webp" alt="陳慧蓉照片"></div>
+            <div class="speaker-info">
+              <p class="speaker-role">前台灣微軟首席營運長</p>
+              <h3 class="speaker-name">陳慧蓉</h3>
+              <span class="course-title">教練引導力</span>
+              <p class="speaker-highlight">以跨國企業高階管理與教練經驗切入，聚焦信任建立、潛能激發與高成長團隊，帶回壓力下的教練式帶領。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section blue-wash" id="outline">
+        <span class="tagline">授課大綱</span>
+        <h2 class="section-title">三大領導力主題<br>對應經營現場</h2>
+        <p class="section-lead">聚焦經營、帶人、溝通與組織發展，帶回可運用的管理思維。</p>
+
+        <div class="outline-list">
+          <article class="outline-card">
+            <div class="outline-header">
+              <span class="outline-theme">主題｜逆境領導力</span>
+              <h3>邱光隆</h3>
+              <p>三商家購（美廉社）董事總經理</p>
+            </div>
+            <ul class="outline-body">
+              <li>從市場挑戰到經營突破：美廉社如何建立定位並帶動成長。</li>
+              <li>從單點成功到據點複製：如何打造可複製的經營模式與管理節奏。</li>
+              <li>從帶人到培育組織：人才培育、幹部養成與團隊擴張的關鍵思維。</li>
+              <li>給創業者經營提醒：當團隊面臨瓶頸時，領導者如何重新帶動成長。</li>
+            </ul>
+          </article>
+
+          <article class="outline-card">
+            <div class="outline-header">
+              <span class="outline-theme">主題｜溝通影響力</span>
+              <h3>謝馨慧</h3>
+              <p>前台灣奧美集團董事總經理</p>
+            </div>
+            <ul class="outline-body">
+              <li>洞察人心與看懂局勢：掌握新世代心理與團隊溝通關鍵。</li>
+              <li>自我定調與領導場域建立：從溝通風格、價值觀與能量管理，形塑讓部屬願意追隨的經營者形象。</li>
+              <li>精準影響與信任賦能：提升團隊信任、主管影響力與組織規模化動能。</li>
+              <li>經營者私房筆記：透過領導力自省與行動承諾，將人心洞察轉化為日常經營習慣。</li>
+            </ul>
+          </article>
+
+          <article class="outline-card">
+            <div class="outline-header">
+              <span class="outline-theme">主題｜教練引導力</span>
+              <h3>陳慧蓉</h3>
+              <p>前台灣微軟首席營運長</p>
+            </div>
+            <ul class="outline-body">
+              <li>從管理績效到成就他人：主管如何將目標轉化為團隊前進動能。</li>
+              <li>教練式領導與信任建立：在壓力中建立團隊信任、賦能與成長。</li>
+              <li>成長心態與協作文化：從微軟經驗看高成長團隊如何持續進化。</li>
+              <li>AI 時代的領導提醒：面對快速變化，主管如何保有學習力與組織彈性。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section class="section tint" id="sessions">
         <span class="tagline">場次資訊</span>
-        <h1 class="section-title">北部場／高雄場</h1>
+        <h2 class="section-title">台北場／高雄場</h2>
         <p class="section-lead">請依所屬地區完成報名回覆。北一、北二、桃竹為台北場；中嘉、台南、高屏為高雄場。</p>
 
         <div class="venue-list">
@@ -850,94 +1063,6 @@
         </div>
       </section>
 
-      <section class="section" id="speakers">
-        <span class="tagline">講師陣容</span>
-        <h2 class="section-title">跨界經營視角<br>帶回領導啟發</h2>
-        <p class="section-lead">三位講師分別聚焦經營突破、溝通影響與教練式帶領。</p>
-
-        <div class="speaker-list">
-          <article class="speaker-card chiou">
-            <div class="speaker-photo"><img src="assets/chiou-kuanglung.webp" alt="邱光隆照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">三商家購（美廉社）董事總經理</p>
-              <h3 class="speaker-name">邱光隆</h3>
-              <span class="course-title">逆境領導力</span>
-              <p class="speaker-highlight">從第一家門市到全台 800 多家據點，聚焦市場定位、據點複製與管理節奏，帶回組織成長瓶頸中的突破思路。</p>
-                          </div>
-          </article>
-
-          <article class="speaker-card hsieh">
-            <div class="speaker-photo"><img src="assets/hsieh-hsinhui.webp" alt="謝馨慧照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">前台灣奧美集團董事總經理</p>
-              <h3 class="speaker-name">謝馨慧</h3>
-              <span class="course-title">溝通影響力</span>
-              <p class="speaker-highlight">以品牌、公關與危機管理經驗切入，聚焦看懂人心、掌握溝通場域，帶回建立信任與影響力的方法。</p>
-                          </div>
-          </article>
-
-          <article class="speaker-card chen">
-            <div class="speaker-photo"><img src="assets/chen-flora.webp" alt="陳慧蓉照片"></div>
-            <div class="speaker-info">
-              <p class="speaker-role">前台灣微軟首席營運長</p>
-              <h3 class="speaker-name">陳慧蓉</h3>
-              <span class="course-title">教練引導力</span>
-              <p class="speaker-highlight">以跨國企業高階管理與教練經驗切入，聚焦信任建立、潛能激發與高成長團隊，帶回壓力下的教練式帶領。</p>
-                          </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section blue-wash" id="outline">
-        <span class="tagline">授課大綱</span>
-        <h2 class="section-title">三大領導力主題<br>對應經營現場</h2>
-        <p class="section-lead">聚焦經營、帶人、溝通與組織發展，帶回可運用的管理思維。</p>
-
-        <div class="outline-list">
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜逆境領導力</span>
-              <h3>邱光隆</h3>
-              <p>三商家購（美廉社）董事總經理</p>
-            </div>
-            <ul class="outline-body">
-              <li>從市場挑戰到經營突破：美廉社如何建立定位並帶動成長。</li>
-              <li>從單點成功到據點複製：如何打造可複製的經營模式與管理節奏。</li>
-              <li>從帶人到培育組織：人才培育、幹部養成與團隊擴張的關鍵思維。</li>
-              <li>給創業者經營提醒：當團隊面臨瓶頸時，領導者如何重新帶動成長。</li>
-            </ul>
-          </article>
-
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜溝通影響力</span>
-              <h3>謝馨慧</h3>
-              <p>前台灣奧美集團董事總經理</p>
-            </div>
-            <ul class="outline-body">
-              <li>洞察人心與看懂局勢：掌握新世代心理與團隊溝通關鍵。</li>
-              <li>自我定調與領導場域建立：從溝通風格、價值觀與能量管理，形塑讓部屬願意追隨的經營者形象。</li>
-              <li>精準影響與信任賦能：提升團隊信任、主管影響力與組織規模化動能。</li>
-              <li>經營者私房筆記：透過領導力自省與行動承諾，將人心洞察轉化為日常經營習慣。</li>
-            </ul>
-          </article>
-
-          <article class="outline-card">
-            <div class="outline-header">
-              <span class="outline-theme">主題｜教練引導力</span>
-              <h3>陳慧蓉</h3>
-              <p>前台灣微軟首席營運長</p>
-            </div>
-            <ul class="outline-body">
-              <li>從管理績效到成就他人：主管如何將目標轉化為團隊前進動能。</li>
-              <li>教練式領導與信任建立：在壓力中建立團隊信任、賦能與成長。</li>
-              <li>成長心態與協作文化：從微軟經驗看高成長團隊如何持續進化。</li>
-              <li>AI 時代的領導提醒：面對快速變化，主管如何保有學習力與組織彈性。</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
       <section class="section form-section" id="register">
         <span class="tagline">報名回覆</span>
         <h2 class="section-title">請完成出席回覆</h2>
@@ -977,7 +1102,7 @@
                   <input type="radio" name="attendance" value="以上日期確定出席">
                   <span>
                     <span class="radio-title">以上日期確定出席</span>
-                    <span class="radio-note">請確認可出席所屬場次日期後再送出，以利主辦單位安排名額、場地與課程資源；請珍惜公司培訓資源。</span>
+                    <span class="radio-note">請確認可出席所屬場次日期後再送出，以利主辦單位安排名額、場地與課程資源；請珍惜公司培訓資源。<strong>報名完成後將另行提供課前講堂問卷，屆時再請協助填寫。</strong></span>
                   </span>
                 </label>
 
