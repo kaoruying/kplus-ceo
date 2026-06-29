@@ -570,6 +570,17 @@
     .message.show { display: block; }
     .message.ok { background: #eaf7ef; color: #155c2c; border: 1px solid #b7e2c4; }
     .message.err { background: #fff0f2; color: #9d2330; border: 1px solid #f1b7c1; }
+    .field.invalid select,
+    .field.invalid input[type="text"] {
+      border-color: rgba(199, 17, 28, .68);
+      box-shadow: 0 0 0 4px rgba(199, 17, 28, .08);
+    }
+    .field.invalid .attend-options {
+      padding: 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(199, 17, 28, .42);
+      background: rgba(255, 240, 242, .42);
+    }
     .form-actions { display: grid; gap: 10px; }
     .btn {
       display: inline-flex;
@@ -1022,7 +1033,7 @@
         <h2 class="section-title reveal delay-1">請完成出席回覆</h2>
         <div class="reg-grid">
           <section class="form-panel reveal delay-1" aria-label="報名表單">
-            <form id="registrationForm">
+            <form id="registrationForm" novalidate>
               <div class="field">
                 <label for="region">地區<span class="req">*</span></label>
                 <select id="region" name="region" required>
@@ -1074,9 +1085,9 @@
                   </label>
                 </div>
               </div>
-              <div id="message" class="message" aria-live="polite"></div>
               <div class="form-actions">
                 <button class="btn" type="submit">送出</button>
+                <div id="message" class="message" aria-live="polite"></div>
                 <div class="form-note">按下送出後將直接送出報名回覆。</div>
               </div>
             </form>
@@ -1185,6 +1196,58 @@
       message.textContent = "";
     }
 
+    function clearFieldErrors() {
+      form.querySelectorAll(".field.invalid").forEach(field => field.classList.remove("invalid"));
+    }
+
+    function markInvalid(element) {
+      const field = element.closest(".field");
+      if (field) field.classList.add("invalid");
+    }
+
+    function validateRequiredFields() {
+      clearFieldErrors();
+
+      const officeEl = document.getElementById("office");
+      const nameEl = document.getElementById("name");
+      const attendance = getAttendanceValue();
+      const missing = [];
+
+      if (!regionEl.value) {
+        missing.push("地區");
+        markInvalid(regionEl);
+      }
+
+      if (!officeEl.value.trim()) {
+        missing.push("通訊處名稱");
+        markInvalid(officeEl);
+      }
+
+      if (!nameEl.value.trim()) {
+        missing.push("姓名");
+        markInvalid(nameEl);
+      }
+
+      if (!attendance) {
+        missing.push("出席回覆");
+        const attendanceField = form.querySelector(".attend-options").closest(".field");
+        if (attendanceField) attendanceField.classList.add("invalid");
+      }
+
+      if (attendance === "其他需求" && !otherNeed.value.trim()) {
+        missing.push("其他需求說明");
+        markInvalid(otherNeed);
+      }
+
+      if (missing.length) {
+        showMessage("err", `請確認以下必填欄位：\n・${missing.join("\n・")}`);
+        message.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+
+      return true;
+    }
+
     function getAttendanceValue() {
       const checked = form.querySelector('input[name="attendance"]:checked');
       return checked ? checked.value : "";
@@ -1236,11 +1299,15 @@
     form.addEventListener("change", () => {
       const attendance = getAttendanceValue();
       if (attendance !== "其他需求") otherNeed.value = "";
+      clearFieldErrors();
+      clearMessage();
     });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       clearMessage();
+
+      if (!validateRequiredFields()) return;
 
       const payload = buildPayload();
       if (payload === false) return;
